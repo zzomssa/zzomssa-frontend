@@ -1,0 +1,69 @@
+{
+  "name": "dnd-4th-4-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.4.0",
+    "antd": "^4.12.0",
+    "autoprefixer": "^10.2.3",
+    "axios": "^0.21.1",
+    "eslint-config": "^0.3.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "postcss": "^8.2.4",
+    "prettier": "^2.2.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-kakao-login": "^2.0.3",
+    "react-responsive-carousel": "^3.2.11",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "reactstrap": "^8.9.0",
+    "styled-components": "^5.2.1",
+    "styled-reset": "^4.3.4",
+    "tailwindcss": "^2.0.2",
+    "tailwindcss-gradients": "^3.0.0",
+    "tailwindcss-pseudo-elements": "^1.5.1",
+    "twin.macro": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "react/no-array-index-key": 0,
+      "global-require": 0,
+      "react/prop-types": 0,
+      "react/no-children-prop": 0,
+      "no-underscore-dangle": 0
+    },
+    "env": {
+      "browser": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
