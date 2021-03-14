@@ -20,7 +20,9 @@ const AppProvider = ({ contexts, children }) =>
   );
 
 const App = () => (
-  <AppProvider contexts={[LoginProvider, PromotionProvider, ColorProvider, MenuProvider]}>
+  <AppProvider
+    contexts={[PromotionProvider, ColorProvider, LoginProvider, MenuProvider]}
+  >
     <GlobalStyles />
     <BrowserRouter basename="/">
       <Routes />

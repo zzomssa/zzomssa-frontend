@@ -20,7 +20,6 @@ const Sidebar = () => {
     setSelectedSubCategory,
   } = useContext(MenuContext);
   const history = useHistory();
-
   return (
     <SidebarContainer>
       {categories && menu && (
