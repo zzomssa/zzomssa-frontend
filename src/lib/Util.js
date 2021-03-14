@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 const makeMenu = (categories, brands) => {
   let menu = {};
   categories.map((category) => {
@@ -10,10 +12,10 @@ const makeMenu = (categories, brands) => {
     };
     return null;
   });
-  menu = {
-    ...menu,
-    HOME: [{ id: 0, name: 'ALL', category: 'HOME', CategoryId: 0 }],
-  };
+  // menu = {
+  //   ...menu,
+  //   HOME: [{ id: 0, name: 'ALL', category: 'HOME', CategoryId: 0 }],
+  // };
   return menu;
 };
 
@@ -33,4 +35,28 @@ const getSelectedBrandInfo = (menu, selectedBrand) => {
   return _selectedBrandInfo[0];
 };
 
-export { makeMenu, getCategoryName, getSelectedBrandInfo };
+const getSelectedContentsHeaderInfo = (match, menu, categories) => {
+  const { params } = match;
+  const subCategory = params.subcategory;
+
+  const menuArr = [];
+  Object.values(menu).map((value) => menuArr.push(...value));
+
+  const _selectedContentsInfo = menuArr.filter(
+    (_subCategory) => _subCategory.name === subCategory,
+  );
+
+  if (_selectedContentsInfo.length > 0) {
+    const [contentsInfo] = _selectedContentsInfo;
+    const categoryName = getCategoryName(categories, contentsInfo.CategoryId);
+    return { categoryName, contentsInfo };
+  }
+  return { categoryName: '', contentsInfo: '' };;
+};
+
+export {
+  makeMenu,
+  getCategoryName,
+  getSelectedBrandInfo,
+  getSelectedContentsHeaderInfo,
+};

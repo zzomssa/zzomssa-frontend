@@ -63,7 +63,7 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const { theme, setTheme } = useContext(ColorContext);
-  const { setSelectedCategory, setSelectedBrand } = useContext(MenuContext);
+  const { setSelectedCategory, setSelectedSubCategory } = useContext(MenuContext);
   const { isLogged } = useContext(LoginContext);
 
   const hadleDisplay = () => {
@@ -78,12 +78,12 @@ const Header = () => {
       <HeaderWrapper>
         <MobileToggle displayHandler={hadleDisplay} />
         <HeaderContainer>
-          <StyledLink to="/ALL">
+          <StyledLink to="/">
             <LogoContainer
               src={Logo}
               onClick={() => {
                 setSelectedCategory(0);
-                setSelectedBrand(0);
+                setSelectedSubCategory(0);
               }}
             />
           </StyledLink>

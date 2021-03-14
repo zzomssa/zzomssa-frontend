@@ -64,6 +64,23 @@ const MobileLogoutButton = styled(Button)(
   `,
 );
 
+const MobileStyledPanelHomeHeader = styled(Panel)(
+  tw`font-bold clickable py-4 pl-2 border-solid border-b-2`,
+  css`
+    border-color: ${(props) => props.theme.mobile_hr};
+
+    .ant-collapse-header {
+      display: flex;
+      font-size: 20px;
+      outline: none;
+      margin-left: 1rem;
+      margin-right: 1.5rem;
+      justify-content: space-between;
+      color: ${(props) => props.selected && props.theme.contrast_text};
+    }
+  `,
+);
+
 const MobileStyledPanelHeader = styled(Panel)(
   tw`font-bold clickable py-4 pl-2 border-solid border-b-2`,
   css`
@@ -121,6 +138,7 @@ export {
   MobileUserContainer,
   MobileUserContent,
   MobileLogoutButton,
+  MobileStyledPanelHomeHeader,
   MobileStyledPanelHeader,
   MobileStyledPanelContent,
   StyledLink,

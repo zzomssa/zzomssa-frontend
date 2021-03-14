@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import MenuContext from '../../context/MenuContext';
+import PromotionContext from '../../../context/PromotionContext';
+import MenuContext from '../../../context/MenuContext';
 
-import { getSelectedBrandInfo } from '../../lib/Util';
+import { getSelectedBrandInfo } from '../../../lib/Util';
 import {
   CardListContainer,
   CustomCard,
@@ -11,11 +12,11 @@ import {
   CardTitle,
   CardDuration,
   CardBrandInfo,
-} from './styled/mobile';
+} from '../styled/mobile';
 
-const MobileCardList = () => {
-  const { menu, promotions } = useContext(MenuContext);
-
+const AllMobileCardList = () => {
+  const { promotions } = useContext(PromotionContext);
+  const { menu } = useContext(MenuContext);
   return (
     <CardListContainer>
       {promotions &&
@@ -48,4 +49,4 @@ const MobileCardList = () => {
   );
 };
 
-export default MobileCardList;
+export default AllMobileCardList;

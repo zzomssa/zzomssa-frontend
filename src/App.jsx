@@ -6,6 +6,7 @@ import { GlobalStyles } from './style';
 import { ColorProvider } from './context/ColorContext';
 import { MenuProvider } from './context/MenuContext';
 import { LoginProvider } from './context/LoginContext';
+import { PromotionProvider } from './context/PromotionContext';
 
 import Routes from './Routes';
 
@@ -19,7 +20,7 @@ const AppProvider = ({ contexts, children }) =>
   );
 
 const App = () => (
-  <AppProvider contexts={[ColorProvider, MenuProvider, LoginProvider]}>
+  <AppProvider contexts={[LoginProvider, PromotionProvider, ColorProvider, MenuProvider]}>
     <GlobalStyles />
     <BrowserRouter basename="/">
       <Routes />

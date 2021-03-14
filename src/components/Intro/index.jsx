@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import LoginModal from '../LoginStatus/LoginModal';
 import LoginTools from '../../constants/loginItem';
 
+// 삭제예정
+
 const CardWrapper = styled.div(
   tw`w-full`,
   css`

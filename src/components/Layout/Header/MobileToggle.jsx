@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
@@ -18,6 +19,7 @@ import {
   MobileUserContainer,
   MobileUserContent,
   MobileLogoutButton,
+  MobileStyledPanelHomeHeader,
   MobileStyledPanelHeader,
   MobileStyledPanelContent,
   StyledLink,
@@ -35,8 +37,8 @@ const MobileToggle = (props) => {
     menu,
     selectedCategory,
     setSelectedCategory,
-    selectedBrand,
-    setSelectedBrand,
+    selectedSubCategory,
+    setSelectedSubCategory,
   } = useContext(MenuContext);
   const {
     isLogged,
@@ -45,6 +47,7 @@ const MobileToggle = (props) => {
     setProfileNickName,
     setProfileId,
   } = useContext(LoginContext);
+  const history = useHistory();
 
   const [open, setOpen] = useState(false);
 
@@ -104,9 +107,24 @@ const MobileToggle = (props) => {
             <Collapse
               accordion
               expandIconPosition="right"
-              onChange={(eventId) =>
-                setSelectedCategory(Number.parseInt(eventId, 10))}
+              onChange={(eventId) => {
+                if (Number.parseInt(eventId, 10) !== 0)
+                  setSelectedCategory(Number.parseInt(eventId, 10));
+                else {
+                  // HOME 버튼 클릭시 처리
+                  setSelectedCategory(0);
+                  setSelectedSubCategory(0);
+                  closeMenu();
+                  history.push('/');
+                }
+              }}
             >
+              <MobileStyledPanelHomeHeader
+                header="HOME"
+                key={0}
+                selected={selectedCategory === 0}
+                showArrow={false}
+              />
               {Object.entries(categories).map((categoryArr) => {
                 const category = categoryArr[1];
                 const categotyName = category.name;
@@ -120,19 +138,19 @@ const MobileToggle = (props) => {
                     extra={genExtra()}
                   >
                     {menu[categotyName] &&
-                      menu[categotyName].map((brand) => (
+                      menu[categotyName].map((subCategory) => (
                         <MobileStyledPanelContent
-                          key={brand.id}
+                          key={subCategory.id}
                           onClick={() => {
                             closeMenu();
-                            setSelectedBrand(brand.id);
+                            setSelectedSubCategory(subCategory.id);
                           }}
                         >
                           <StyledLink
-                            to={`/${brand.name.toUpperCase()}`}
-                            selected={selectedBrand === brand.id}
+                            to={`/${subCategory.name.toUpperCase()}`}
+                            selected={selectedSubCategory === subCategory.id}
                           >
-                            {brand.name.toUpperCase()}
+                            {subCategory.name.toUpperCase()}
                           </StyledLink>
                         </MobileStyledPanelContent>
                       ))}

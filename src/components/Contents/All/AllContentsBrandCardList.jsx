@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
-import MenuContext from '../../context/MenuContext';
-import { getSelectedBrandInfo } from '../../lib/Util';
+import PromotionContext from '../../../context/PromotionContext';
+import MenuContext from '../../../context/MenuContext';
+
+import { getSelectedBrandInfo } from '../../../lib/Util';
 
 import {
   CardListContainer,
@@ -12,7 +14,7 @@ import {
   CardText,
   CardDuration,
   CardBrandInfo,
-} from './styled/desktop';
+} from '../styled/desktop';
 
 const DURATION = '기간 :';
 const NONDURATION = '홈페이지 참조';
@@ -31,8 +33,10 @@ const descLengthOverCut = (desc) => {
   return desc;
 };
 
-const CardList = () => {
-  const { menu, promotions } = useContext(MenuContext);
+const AllContentsBrandCardList = () => {
+  const { promotions } = useContext(PromotionContext);
+  const { menu } = useContext(MenuContext);
+
   return (
     <CardListContainer>
       {promotions &&
@@ -48,29 +52,26 @@ const CardList = () => {
             url,
             BrandId,
           } = promotion;
-
           const duration = checkDuration(startAt, endAt);
           const parsedDescription = descLengthOverCut(description);
           const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
           return (
             <>
-              {selectedBrandInfo && (
-                <CustomCard key={id}>
-                  <CustomCardImg
-                    src={image}
-                    alt="Card image cap"
-                    onClick={() => window.open(url, '_blank')}
-                  />
-                  <CustomCardBody>
-                    <CardContent>
-                      <CardTitle>{title}</CardTitle>
-                      <CardText>{parsedDescription}</CardText>
-                      <CardDuration>{duration}</CardDuration>
-                    </CardContent>
-                    <CardBrandInfo>{selectedBrandInfo.name}</CardBrandInfo>
-                  </CustomCardBody>
-                </CustomCard>
-              )}
+              <CustomCard key={id}>
+                <CustomCardImg
+                  src={image}
+                  alt="Card image cap"
+                  onClick={() => window.open(url, '_blank')}
+                />
+                <CustomCardBody>
+                  <CardContent>
+                    <CardTitle>{title}</CardTitle>
+                    <CardText>{parsedDescription}</CardText>
+                    <CardDuration>{duration}</CardDuration>
+                  </CardContent>
+                  <CardBrandInfo>{selectedBrandInfo && selectedBrandInfo.name}</CardBrandInfo>
+                </CustomCardBody>
+              </CustomCard>
             </>
           );
         })}
@@ -78,4 +79,4 @@ const CardList = () => {
   );
 };
 
-export default CardList;
+export default AllContentsBrandCardList;

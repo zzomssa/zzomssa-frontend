@@ -1,11 +1,13 @@
+/* eslint-disable no-console */
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Collapse } from 'antd';
 import MenuContext from '../../../context/MenuContext';
 import {
   SidebarContainer,
+  StyledPanelHomeHeader,
   StyledPanelHeader,
   StyledPanelContent,
-  StyledLink,
 } from './styled/desktop';
 
 const Sidebar = () => {
@@ -14,9 +16,10 @@ const Sidebar = () => {
     menu,
     selectedCategory,
     setSelectedCategory,
-    selectedBrand,
-    setSelectedBrand,
+    selectedSubCategory,
+    setSelectedSubCategory,
   } = useContext(MenuContext);
+  const history = useHistory();
 
   return (
     <SidebarContainer>
@@ -24,9 +27,23 @@ const Sidebar = () => {
         <Collapse
           ghost
           accordion
-          onChange={(eventId) =>
-            setSelectedCategory(Number.parseInt(eventId, 10))}
+          onChange={(eventId) => {
+            if (Number.parseInt(eventId, 10) !== 0)
+              setSelectedCategory(Number.parseInt(eventId, 10));
+            else {
+              // HOME 버튼 클릭시 처리
+              setSelectedCategory(0);
+              setSelectedSubCategory(0);
+              history.push('/');
+            }
+          }}
         >
+          <StyledPanelHomeHeader
+            header="HOME"
+            key={0}
+            selected={selectedCategory === 0}
+            showArrow={false}
+          />
           {Object.entries(categories).map((categoryArr) => {
             const category = categoryArr[1];
             const categotyName = category.name;
@@ -39,17 +56,16 @@ const Sidebar = () => {
                 showArrow={false}
               >
                 {menu[categotyName] &&
-                  menu[categotyName].map((brand) => (
+                  menu[categotyName].map((subCategory) => (
                     <StyledPanelContent
-                      key={brand.id}
-                      onClick={() => setSelectedBrand(brand.id)}
+                      key={subCategory.id}
+                      selected={selectedSubCategory === subCategory.id}
+                      onClick={() => {
+                        setSelectedSubCategory(subCategory.id);
+                        history.push(`/${subCategory.name.toUpperCase()}`);
+                      }}
                     >
-                      <StyledLink
-                        to={`/${brand.name.toUpperCase()}`}
-                        selected={selectedBrand === brand.id}
-                      >
-                        {brand.name.toUpperCase()}
-                      </StyledLink>
+                      {subCategory.name.toUpperCase()}
                     </StyledPanelContent>
                   ))}
               </StyledPanelHeader>

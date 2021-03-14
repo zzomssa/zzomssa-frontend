@@ -1,17 +1,15 @@
 import React from 'react';
-import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { withRouter, Switch, Route } from 'react-router-dom';
 
-import Intro from './components/Intro';
 import Base from './components/Layout';
 import MobileFavoriteBar from './components/MobileFavoriteBar';
-import Contents from './components/Contents';
+import { Contents, AllContents } from './components/Contents';
 
 const Routes = () => (
   <Switch>
-    <Route path="/intro" component={Intro} />
     <Base>
-      <Redirect from="/" to="/ALL" />
-      <Route path="/:brand" component={Contents} exact />
+      <Route path="/" component={AllContents} exact />
+      <Route path="/:subcategory" component={Contents} exact />
       <Route path="/mobile/favorite" component={MobileFavoriteBar} exact />
     </Base>
   </Switch>
