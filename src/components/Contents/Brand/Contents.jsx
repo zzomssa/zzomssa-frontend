@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import MenuContext from '../../../context/MenuContext';
 import PromotionContext from '../../../context/PromotionContext';
@@ -11,7 +12,15 @@ import ContentsMobileCardList from './ContentsMobileCardList';
 
 const Contents = (props) => {
   const { match } = props;
-  const { menu, categories } = useContext(MenuContext);
+  const {
+    selectedCategory,
+    selectedSubCategory,
+    menu,
+    categories,
+  } = useContext(MenuContext);
+  if (selectedCategory === 0 && selectedSubCategory === 0) {
+    return <Redirect to="/" />;
+  }
   const { setSelectedContentsId } = useContext(PromotionContext);
   const { categoryName, contentsInfo } = getSelectedContentsHeaderInfo(
     match,

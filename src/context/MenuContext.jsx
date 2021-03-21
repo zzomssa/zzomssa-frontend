@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+
 import * as API from '../lib/APIs';
 import { makeMenu } from '../lib/Util';
 
@@ -32,6 +33,10 @@ const MenuProvider = ({ children }) => {
     Object.values(menu).map((_value) => menuArr.push(..._value));
   }, []);
 
+  // useEffect(() => {
+  //   if (selectedCategory === 0 && selectedSubCategory === 0) {
+  //   }
+  // }, [selectedCategory, selectedSubCategory]);
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };
 

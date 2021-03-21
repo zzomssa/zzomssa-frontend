@@ -35,7 +35,7 @@ const postLoginInfo = async (profileId, profileNickName) => {
 
 const getAllBrandPromotions = async () => {
   try {
-    return await client.get(`${baseApiURL}/api/promotions`);
+    return await client.get(`${baseApiURL}/api/brands/promotions`);
   } catch (e) {
     return null;
   }
