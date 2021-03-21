@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
-
+import { replaceAll } from '../../../lib/Util';
 import {
   CardListContainer,
   CustomCard,
@@ -50,6 +50,9 @@ const ContentsBrandCardList = (props) => {
           } = promotion;
           const duration = checkDuration(startAt, endAt);
           const parsedDescription = descLengthOverCut(description);
+          const refinedTitle = replaceAll(title, "\r\n", " ");
+          const refinedDesc = replaceAll(parsedDescription, "\r\n", " ");
+
           return (
             <>
               <CustomCard key={id}>
@@ -60,8 +63,8 @@ const ContentsBrandCardList = (props) => {
                 />
                 <CustomCardBody>
                   <CardContent>
-                    <CardTitle>{title}</CardTitle>
-                    <CardText>{parsedDescription}</CardText>
+                    <CardTitle>{refinedTitle}</CardTitle>
+                    <CardText>{refinedDesc}</CardText>
                     <CardDuration>{duration}</CardDuration>
                   </CardContent>
                   <CardBrandInfo>{brandName}</CardBrandInfo>

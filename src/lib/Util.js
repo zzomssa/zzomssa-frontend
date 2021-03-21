@@ -45,12 +45,16 @@ const getSelectedContentsHeaderInfo = (match, menu, categories) => {
     const categoryName = getCategoryName(categories, contentsInfo.CategoryId);
     return { categoryName, contentsInfo };
   }
-  return { categoryName: '', contentsInfo: '' };;
+  return { categoryName: '', contentsInfo: '' };
 };
+
+const replaceAll = (str, searchStr, replaceStr) =>
+  str.split(searchStr).join(replaceStr);
 
 export {
   makeMenu,
   getCategoryName,
   getSelectedBrandInfo,
   getSelectedContentsHeaderInfo,
+  replaceAll
 };

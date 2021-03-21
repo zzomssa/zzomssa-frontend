@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
 
-import { getSelectedBrandInfo } from '../../../lib/Util';
+import { replaceAll,getSelectedBrandInfo } from '../../../lib/Util';
 
 import {
   CardListContainer,
@@ -54,6 +54,8 @@ const AllContentsBrandCardList = () => {
           } = promotion;
           const duration = checkDuration(startAt, endAt);
           const parsedDescription = descLengthOverCut(description);
+          const refinedTitle = replaceAll(title, "\r\n", " ");
+          const refinedDesc = replaceAll(parsedDescription, "\r\n", " ");
           const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
           return (
             <>
@@ -65,8 +67,8 @@ const AllContentsBrandCardList = () => {
                 />
                 <CustomCardBody>
                   <CardContent>
-                    <CardTitle>{title}</CardTitle>
-                    <CardText>{parsedDescription}</CardText>
+                    <CardTitle>{refinedTitle}</CardTitle>
+                    <CardText>{refinedDesc}</CardText>
                     <CardDuration>{duration}</CardDuration>
                   </CardContent>
                   <CardBrandInfo>{selectedBrandInfo && selectedBrandInfo.name}</CardBrandInfo>
