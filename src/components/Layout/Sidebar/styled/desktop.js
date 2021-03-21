@@ -18,10 +18,10 @@ const StyledPanelHomeHeader = styled(Panel)(
     .ant-collapse-header {
       width: 1px;
       font-size: 28px;
-      @media (min-width: 1280px) {
-        margin: 0 auto;
+      @media (min-width: 1522px) {
+        margin: 0 12rem;
       }
-      @media (min-width: 824px) and (max-width: 1279px) {
+      @media (min-width: 1000px) and (max-width: 1521px) {
         margin: 0 4rem;
       }
       margin: 0 1rem;
@@ -40,10 +40,10 @@ const StyledPanelHeader = styled(Panel)(
     .ant-collapse-header {
       width: 1px;
       font-size: 28px;
-      @media (min-width: 1280px) {
-        margin: 0 auto;
+      @media (min-width: 1522px) {
+        margin: 0 12rem;
       }
-      @media (min-width: 824px) and (max-width: 1279px) {
+      @media (min-width: 1000px) and (max-width: 1521px) {
         margin: 0 4rem;
       }
       margin: 0 1rem;
@@ -55,13 +55,13 @@ const StyledPanelHeader = styled(Panel)(
     }
     .ant-collapse-content {
       width: 1px;
-      @media (min-width: 1280px) {
-        margin: 0 auto;
+      @media (min-width: 1522px) {
+        margin: 0 13rem;
       }
-      @media (min-width: 824px) and (max-width: 1279px) {
-        margin: 0 4rem;
+      @media (min-width: 1000px) and (max-width: 1521px) {
+        margin: 0 5rem;
       }
-      margin: 0 1rem;
+      margin: 0 2rem;
     }
     .ant-motion-collapse {
       transition: height 0.3s ease;
