@@ -25,11 +25,7 @@ const FavoriteBarContentContainer = styled.div(
 );
 
 const FavoriteBarContent = styled.div(
-  tw`w-full my-4 rounded-xl border border-dashed text-center`,
-  css`
-    height: 45px;
-    line-height: 45px;
-  `,
+  tw`w-full my-4 rounded-xl border border-dashed text-center leading-45px`
 );
 
 const temp = Array(4).fill('+');

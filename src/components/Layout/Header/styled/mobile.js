@@ -30,20 +30,18 @@ const MobileSidebar = styled.div(
 );
 
 const MobileHeaderContainer = styled.div(
-  tw`flex items-center px-6 text-white justify-between md:(hidden)`,
+  tw`flex items-center px-6 h-58px text-white justify-between md:(hidden)`,
   css`
     background-color: #303030;
-    height: 58px;
   `,
 );
 
 const MobileLogoContainer = styled.img(tw`items-center clickable w-7 h-7`);
 const MobileCloseContainer = styled(ImageContainer)(tw`items-center`);
 const MobileHR = styled.hr(
-  tw`border-none mx-0 mb-2 mt-0 w-full`,
+  tw`border-none mx-0 mb-2 mt-0 w-full h-2px`,
   css`
     background-color: ${(props) => props.theme.mobile_hr};
-    height: 2px;
   `,
 );
 
@@ -55,9 +53,8 @@ const MobileUserContainer = styled.div(
 );
 const MobileUserContent = styled.p(tw`my-2`);
 const MobileLogoutButton = styled(Button)(
-  tw`mt-2 mb-4 border-none rounded-2xl float-right outline-none clickable`,
+  tw`mt-2 mb-4 h-25px border-none rounded-2xl float-right outline-none clickable`,
   css`
-    height: 25px;
     color: ${(props) => props.theme.button_text};
     background-color: ${(props) => props.theme.button_background};
   `,

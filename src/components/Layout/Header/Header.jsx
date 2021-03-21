@@ -21,10 +21,9 @@ import MobileToggle from './MobileToggle';
 
 const HeaderWrapper = styled.div(tw`block fixed w-full z-50`);
 const HeaderContainer = styled.div(
-  tw`flex items-center text-white md:(justify-between) justify-end`,
+  tw`flex items-center text-white h-50px md:(justify-between) justify-end`,
   css`
     background-color: #303030;
-    height: 50px;
     @media (min-width: 768px) {
       padding: 0 12.5%;
     }

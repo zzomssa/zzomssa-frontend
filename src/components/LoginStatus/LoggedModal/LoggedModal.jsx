@@ -24,10 +24,7 @@ const ModalContent = styled.div(
 const DeleteButton = styled.img(tw`block w-5 h-5 float-right clickable`, css``);
 
 const LogoutButton = styled(Button)(
-  tw`mt-2 mb-4 border-none rounded-2xl float-right outline-none clickable`,
-  css`
-    height: 25px;
-  `,
+  tw`mt-2 mb-4 h-25px border-none rounded-2xl float-right outline-none clickable`
 );
 
 const LoginWrapper = styled.div(

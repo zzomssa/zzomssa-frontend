@@ -16,21 +16,21 @@ const BannerContainer = styled.div(
 );
 
 const BannerImage = styled.img(
-  tw`w-full`,
+  tw`w-full h-100px md:(h-320px)`,
   css`
     margin-top: 50px;
-    @media (min-width: 768px) {
-      height: 320px;
-    }
-    @media (max-width: 767px) {
-      height: 100px;
-    }
   `,
 );
 
 const Banner = () => (
   <BannerContainer>
-    <Carousel autoPlay infiniteLoop stopOnHover showThumbs={false} showArrows={false}>
+    <Carousel
+      autoPlay
+      infiniteLoop
+      stopOnHover
+      showThumbs={false}
+      showArrows={false}
+    >
       {BannerImages?.map((imageSrc, index) => (
         <BannerImage key={index} src={imageSrc} />
       ))}

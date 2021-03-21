@@ -11,10 +11,7 @@ const CustomCard = styled(Card)(
   `,
 );
 const CustomCardImg = styled(CardImg)(
-  tw`w-full clickable`,
-  css`
-    height: 222px;
-  `,
+  tw`w-full clickable h-222px`
 );
 const CustomCardBody = styled(CardBody)(
   tw`w-full flex flex-row justify-between -mt-1`,

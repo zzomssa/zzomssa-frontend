@@ -7,9 +7,8 @@ const CardListContainer = styled.div(
   tw`hidden md:(flow-root my-10 mx-16 items-center)`,
 );
 const CustomCard = styled(Card)(
-  tw`flex m-8 flex-row rounded-xl overflow-hidden border border-solid`,
+  tw`flex m-8 flex-row rounded-xl overflow-hidden border border-solid h-222px`,
   css`
-    height: 222px;
     border-color: ${(props) => props.theme.card_border};
   `,
 );
@@ -22,9 +21,8 @@ const CustomCardBody = styled(CardBody)(
 );
 
 const CardContent = styled.div(
-  tw`px-10 pt-6 truncate`,
+  tw`px-10 pt-6 truncate h-150px`,
   css`
-    height: 150px;
     white-space: break-spaces;
   `,
 );

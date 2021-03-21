@@ -10,19 +10,17 @@ import MenuContext from '../../context/MenuContext';
 
 const INPUT_PLACEHOLDER = '검색';
 const SearchContainer = styled.div(
-  tw`fixed w-full z-100 flex justify-center items-center`,
+  tw`fixed w-full z-100 h-80px flex justify-center items-center`,
   css`
     background-color: #303030;
-    height: 80px;
   `,
 );
 const StyledLink = styled(Link)(tw`flex items-center`);
 
 const SearchBar = styled(InputGroup)(
-  tw`rounded-3xl flex flex-row items-center`,
+  tw`rounded-3xl flex flex-row h-35px items-center`,
   css`
     background-color: #747474;
-    height: 35px;
   `,
 );
 
@@ -37,7 +35,7 @@ const StyledInput = styled(Input)(
 );
 
 const SearchCloseButton = styled.div(
-  tw`fixed z-100 left-2/4 transform -translate-x-2/4`,
+  tw`fixed z-100 left-2/4 transform -translate-x-2/4 leading-6px`,
   css`
     margin-top: 85px;
     background-color: #747474;

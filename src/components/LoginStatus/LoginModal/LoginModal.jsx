@@ -25,9 +25,8 @@ const ModalContent = styled.div(
 );
 
 const LoginText = styled.div(
-  tw` sm:text-2xl text-black text-center`,
+  tw` sm:text-2xl font-medium text-black text-center`,
   css`
-    font-size: medium;
     @media (min-width: 768) {
       padding-top: 5%;
     }
@@ -49,12 +48,11 @@ const LoginWrapper = styled.div(
 );
 
 const Imagewrapper = styled.div(
-  tw` flex items-center justify-center w-full clickable sm: my-32 `,
+  tw` flex text-16 items-center justify-center w-full clickable sm: my-32 `,
   css`
     height: 50px;
     margin: 5% auto;
     border-radius: 10px;
-    font-size: 16px;
     background-color: ${(props) =>
       props.color === 'true' ? 'black' : '#f9e000'};
     color: ${(props) => (props.color === 'true' ? 'white' : 'black')};
