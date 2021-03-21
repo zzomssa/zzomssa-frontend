@@ -14,39 +14,35 @@ import {
   CardBrandInfo,
 } from '../styled/mobile';
 
-const AllMobileCardList = () => {
+const AllContentsMobileCardList = () => {
   const { promotions } = useContext(PromotionContext);
   const { menu } = useContext(MenuContext);
   return (
     <CardListContainer>
-      {promotions &&
-        promotions.data &&
-        promotions.data.map((promotion) => {
-          const { id, description, image, title, url, BrandId } = promotion;
-          const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
-          return (
-            <>
-              {selectedBrandInfo && (
-                <CustomCard key={id}>
-                  <CustomCardImg
-                    src={image}
-                    alt="Card image cap"
-                    onClick={() => window.open(url, '_blank')}
-                  />
-                  <CustomCardBody>
-                    <CardContent>
-                      <CardTitle>{title}</CardTitle>
-                      <CardDuration>{description}</CardDuration>
-                    </CardContent>
-                    <CardBrandInfo>{selectedBrandInfo.name}</CardBrandInfo>
-                  </CustomCardBody>
-                </CustomCard>
-              )}
-            </>
-          );
-        })}
+      {promotions?.data?.map((promotion) => {
+        const { id, description, image, title, url, BrandId } = promotion;
+        const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
+        return (
+          <>
+            <CustomCard key={id}>
+              <CustomCardImg
+                src={image}
+                alt="Card image cap"
+                onClick={() => window.open(url, '_blank')}
+              />
+              <CustomCardBody>
+                <CardContent>
+                  <CardTitle>{title}</CardTitle>
+                  <CardDuration>{description}</CardDuration>
+                </CardContent>
+                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+              </CustomCardBody>
+            </CustomCard>
+          </>
+        );
+      })}
     </CardListContainer>
   );
 };
 
-export default AllMobileCardList;
+export default AllContentsMobileCardList;

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { InputGroup, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import tw from 'twin.macro';
 import { iconSearch, iconX } from '../../constants/searchItem';
+import PromotionContext from '../../context/PromotionContext';
+import MenuContext from '../../context/MenuContext';
 
 const INPUT_PLACEHOLDER = '검색';
 const SearchContainer = styled.div(
@@ -13,6 +16,8 @@ const SearchContainer = styled.div(
     height: 80px;
   `,
 );
+const StyledLink = styled(Link)(tw`flex items-center`);
+
 const SearchBar = styled(InputGroup)(
   tw`rounded-3xl flex flex-row items-center`,
   css`
@@ -46,14 +51,25 @@ const ImageContainer = styled.img(tw`mx-4 clickable w-5 h-5`);
 
 const Search = (props) => {
   const { handleSearch } = props;
-  const [searchTerm, setSearchTerm] = useState('');
+  const { searchTerm, setSearchTerm } = useContext(PromotionContext);
+  const { setSelectedCategory, setSelectedSubCategory } = useContext(
+    MenuContext,
+  );
   const handleInput = (e) => setSearchTerm(e.target.value);
 
   return (
     <>
       <SearchContainer>
         <SearchBar>
-          <ImageContainer src={iconSearch} />
+          <StyledLink to="/search">
+            <ImageContainer
+              src={iconSearch}
+              onClick={() => {
+                setSelectedCategory(-1);
+                setSelectedSubCategory(-1);
+              }}
+            />
+          </StyledLink>
           <StyledInput
             placeholder={INPUT_PLACEHOLDER}
             value={searchTerm}

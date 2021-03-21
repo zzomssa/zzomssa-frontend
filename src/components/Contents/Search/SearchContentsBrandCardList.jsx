@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
+import MenuContext from '../../../context/MenuContext';
 
 import {
   replaceAll,
+  getSelectedBrandInfo,
   checkDuration,
   descLengthOverCut,
 } from '../../../lib/Util';
@@ -19,10 +21,9 @@ import {
   CardBrandInfo,
 } from '../styled/desktop';
 
-const ContentsBrandCardList = (props) => {
+const SearchContentsBrandCardList = () => {
   const { promotions } = useContext(PromotionContext);
-  const { brandName } = props;
-
+  const { menu } = useContext(MenuContext);
   return (
     <CardListContainer>
       {promotions?.data?.map((promotion) => {
@@ -34,12 +35,13 @@ const ContentsBrandCardList = (props) => {
           image,
           title,
           url,
+          BrandId,
         } = promotion;
         const duration = checkDuration(startAt, endAt);
         const parsedDescription = descLengthOverCut(description);
         const refinedTitle = replaceAll(title, '\r\n', ' ');
         const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
-
+        const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
         return (
           <>
             <CustomCard key={id}>
@@ -54,7 +56,7 @@ const ContentsBrandCardList = (props) => {
                   <CardText>{refinedDesc}</CardText>
                   <CardDuration>{duration}</CardDuration>
                 </CardContent>
-                <CardBrandInfo>{brandName}</CardBrandInfo>
+                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
               </CustomCardBody>
             </CustomCard>
           </>
@@ -64,4 +66,4 @@ const ContentsBrandCardList = (props) => {
   );
 };
 
-export default ContentsBrandCardList;
+export default SearchContentsBrandCardList;

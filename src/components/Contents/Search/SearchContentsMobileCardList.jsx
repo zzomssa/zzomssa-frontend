@@ -2,13 +2,7 @@ import React, { useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
 
-import {
-  replaceAll,
-  getSelectedBrandInfo,
-  checkDuration,
-  descLengthOverCut,
-} from '../../../lib/Util';
-
+import { getSelectedBrandInfo } from '../../../lib/Util';
 import {
   CardListContainer,
   CustomCard,
@@ -16,32 +10,17 @@ import {
   CustomCardBody,
   CardContent,
   CardTitle,
-  CardText,
   CardDuration,
   CardBrandInfo,
-} from '../styled/desktop';
+} from '../styled/mobile';
 
-const AllContentsBrandCardList = () => {
+const SearchContentsMobileCardList = () => {
   const { promotions } = useContext(PromotionContext);
   const { menu } = useContext(MenuContext);
-
   return (
     <CardListContainer>
       {promotions?.data?.map((promotion) => {
-        const {
-          id,
-          description,
-          startAt,
-          endAt,
-          image,
-          title,
-          url,
-          BrandId,
-        } = promotion;
-        const duration = checkDuration(startAt, endAt);
-        const parsedDescription = descLengthOverCut(description);
-        const refinedTitle = replaceAll(title, '\r\n', ' ');
-        const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
+        const { id, description, image, title, url, BrandId } = promotion;
         const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
         return (
           <>
@@ -53,9 +32,8 @@ const AllContentsBrandCardList = () => {
               />
               <CustomCardBody>
                 <CardContent>
-                  <CardTitle>{refinedTitle}</CardTitle>
-                  <CardText>{refinedDesc}</CardText>
-                  <CardDuration>{duration}</CardDuration>
+                  <CardTitle>{title}</CardTitle>
+                  <CardDuration>{description}</CardDuration>
                 </CardContent>
                 <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
               </CustomCardBody>
@@ -67,4 +45,4 @@ const AllContentsBrandCardList = () => {
   );
 };
 
-export default AllContentsBrandCardList;
+export default SearchContentsMobileCardList;

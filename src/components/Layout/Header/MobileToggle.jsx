@@ -137,23 +137,22 @@ const MobileToggle = (props) => {
                     selected={selectedCategory === categotyId}
                     extra={genExtra()}
                   >
-                    {menu[categotyName] &&
-                      menu[categotyName].map((subCategory) => (
-                        <MobileStyledPanelContent
-                          key={subCategory.id}
-                          onClick={() => {
-                            closeMenu();
-                            setSelectedSubCategory(subCategory.id);
-                          }}
+                    {menu[categotyName]?.map((subCategory) => (
+                      <MobileStyledPanelContent
+                        key={subCategory.id}
+                        onClick={() => {
+                          closeMenu();
+                          setSelectedSubCategory(subCategory.id);
+                        }}
+                      >
+                        <StyledLink
+                          to={`/brand/${subCategory.name.toUpperCase()}`}
+                          selected={selectedSubCategory === subCategory.id}
                         >
-                          <StyledLink
-                            to={`/${subCategory.name.toUpperCase()}`}
-                            selected={selectedSubCategory === subCategory.id}
-                          >
-                            {subCategory.name.toUpperCase()}
-                          </StyledLink>
-                        </MobileStyledPanelContent>
-                      ))}
+                          {subCategory.name.toUpperCase()}
+                        </StyledLink>
+                      </MobileStyledPanelContent>
+                    ))}
                   </MobileStyledPanelHeader>
                 );
               })}

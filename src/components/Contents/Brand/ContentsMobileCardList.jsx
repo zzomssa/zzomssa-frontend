@@ -18,29 +18,27 @@ const ContentsMobileCardList = (props) => {
 
   return (
     <CardListContainer>
-      {promotions &&
-        promotions.data &&
-        promotions.data.map((promotion) => {
-          const { id, description, image, title, url } = promotion;
-          return (
-            <>
-              <CustomCard key={id}>
-                <CustomCardImg
-                  src={image}
-                  alt="Card image cap"
-                  onClick={() => window.open(url, '_blank')}
-                />
-                <CustomCardBody>
-                  <CardContent>
-                    <CardTitle>{title}</CardTitle>
-                    <CardDuration>{description}</CardDuration>
-                  </CardContent>
-                  <CardBrandInfo>{brandName}</CardBrandInfo>
-                </CustomCardBody>
-              </CustomCard>
-            </>
-          );
-        })}
+      {promotions?.data?.map((promotion) => {
+        const { id, description, image, title, url } = promotion;
+        return (
+          <>
+            <CustomCard key={id}>
+              <CustomCardImg
+                src={image}
+                alt="Card image cap"
+                onClick={() => window.open(url, '_blank')}
+              />
+              <CustomCardBody>
+                <CardContent>
+                  <CardTitle>{title}</CardTitle>
+                  <CardDuration>{description}</CardDuration>
+                </CardContent>
+                <CardBrandInfo>{brandName}</CardBrandInfo>
+              </CustomCardBody>
+            </CustomCard>
+          </>
+        );
+      })}
     </CardListContainer>
   );
 };

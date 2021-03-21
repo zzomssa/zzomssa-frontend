@@ -53,19 +53,18 @@ const Sidebar = () => {
                 selected={selectedCategory === categotyId}
                 showArrow={false}
               >
-                {menu[categotyName] &&
-                  menu[categotyName].map((subCategory) => (
-                    <StyledPanelContent
-                      key={subCategory.id}
-                      selected={selectedSubCategory === subCategory.id}
-                      onClick={() => {
-                        setSelectedSubCategory(subCategory.id);
-                        history.push(`/${subCategory.name.toUpperCase()}`);
-                      }}
-                    >
-                      {subCategory.name.toUpperCase()}
-                    </StyledPanelContent>
-                  ))}
+                {menu[categotyName]?.map((subCategory) => (
+                  <StyledPanelContent
+                    key={subCategory.id}
+                    selected={selectedSubCategory === subCategory.id}
+                    onClick={() => {
+                      setSelectedSubCategory(subCategory.id);
+                      history.push(`/brand/${subCategory.name.toUpperCase()}`);
+                    }}
+                  >
+                    {subCategory.name.toUpperCase()}
+                  </StyledPanelContent>
+                ))}
               </StyledPanelHeader>
             );
           })}

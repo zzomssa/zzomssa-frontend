@@ -24,12 +24,10 @@ const AllContentsHeader = (props) => {
 
   return (
     <ContentsHeaderContainer>
-      {categoryName && contentsInfo && (
-        <>
-          <CategoryHeader>{categoryName.toUpperCase()}</CategoryHeader>
-          <BrandHeader>{contentsInfo.name}</BrandHeader>
-        </>
-      )}
+      <>
+        <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
+        <BrandHeader>{contentsInfo?.name}</BrandHeader>
+      </>
     </ContentsHeaderContainer>
   );
 };

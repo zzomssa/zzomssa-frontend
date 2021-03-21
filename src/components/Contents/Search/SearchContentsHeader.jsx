@@ -12,22 +12,23 @@ const CategoryHeader = styled.div(
     color: ${(props) => props.theme.contrast_text};
   `,
 );
-const BrandHeader = styled.div(
-  tw`md:(text-26) font-bold text-20`,
-  css`
-    color: ${(props) => props.theme.contrast_text};
-  `,
-);
-const ContentsHeader = (props) => {
-  const { categoryName, contentsInfo } = props;
+// const BrandHeader = styled.div(
+//   tw`md:(text-26) font-bold text-20`,
+//   css`
+//     color: ${(props) => props.theme.contrast_text};
+//   `,
+// );
+
+const SearchContentsHeader = (props) => {
+  const { categoryName } = props;
 
   return (
     <ContentsHeaderContainer>
       <>
         <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
-        <BrandHeader>{contentsInfo?.name}</BrandHeader>
+        {/* <BrandHeader>{contentsInfo.name}</BrandHeader> */}
       </>
     </ContentsHeaderContainer>
   );
 };
-export default ContentsHeader;
+export default SearchContentsHeader;

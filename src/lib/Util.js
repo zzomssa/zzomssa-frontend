@@ -1,3 +1,6 @@
+const DURATION = '기간 :';
+const NONDURATION = '홈페이지 참조';
+
 const makeMenu = (categories, brands) => {
   let menu = {};
   categories.map((category) => {
@@ -51,10 +54,18 @@ const getSelectedContentsHeaderInfo = (match, menu, categories) => {
 const replaceAll = (str, searchStr, replaceStr) =>
   str.split(searchStr).join(replaceStr);
 
+const checkDuration = (startAt, endAt) =>
+  startAt && endAt ? `${DURATION} ${startAt} ~ ${endAt}` : NONDURATION;
+
+const descLengthOverCut = (desc) =>
+  desc?.length > 50 ? `${desc.substr(0, 50)} ...` : desc;
+
 export {
   makeMenu,
   getCategoryName,
   getSelectedBrandInfo,
   getSelectedContentsHeaderInfo,
-  replaceAll
+  replaceAll,
+  checkDuration,
+  descLengthOverCut,
 };

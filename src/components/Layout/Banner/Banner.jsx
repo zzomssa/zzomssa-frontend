@@ -31,7 +31,7 @@ const BannerImage = styled.img(
 const Banner = () => (
   <BannerContainer>
     <Carousel autoPlay infiniteLoop stopOnHover showThumbs={false} showArrows={false}>
-      {BannerImages.map((imageSrc, index) => (
+      {BannerImages?.map((imageSrc, index) => (
         <BannerImage key={index} src={imageSrc} />
       ))}
     </Carousel>
