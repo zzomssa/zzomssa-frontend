@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState, useEffect, createContext } from 'react';
 import * as API from '../lib/APIs';
 import { makeMenu } from '../lib/Util';
@@ -27,7 +26,7 @@ const MenuProvider = ({ children }) => {
       const _brands = await API.getBrand();
 
       setCategories(_categories);
-      setMenu(makeMenu(_categories, _brands));
+      if (_categories && _brands) setMenu(makeMenu(_categories, _brands));
     };
     getMenu();
     Object.values(menu).map((_value) => menuArr.push(..._value));

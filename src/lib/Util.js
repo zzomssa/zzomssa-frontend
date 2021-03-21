@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 const makeMenu = (categories, brands) => {
   let menu = {};
   categories.map((category) => {
@@ -12,10 +10,6 @@ const makeMenu = (categories, brands) => {
     };
     return null;
   });
-  // menu = {
-  //   ...menu,
-  //   HOME: [{ id: 0, name: 'ALL', category: 'HOME', CategoryId: 0 }],
-  // };
   return menu;
 };
 

@@ -1,10 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
+import client from './Axios';
 
 const baseApiURL = 'https://zzomsa.tk';
 
 const getBrand = async () => {
   try {
-    const brands = await axios.get(`${baseApiURL}/api/brands`);
+    const brands = await client.get(`${baseApiURL}/api/brands`);
     return brands.data;
   } catch (e) {
     return null;
@@ -13,7 +14,7 @@ const getBrand = async () => {
 
 const getCategory = async () => {
   try {
-    const categories = await axios.get(`${baseApiURL}/api/categories`);
+    const categories = await client.get(`${baseApiURL}/api/categories`);
     return categories.data;
   } catch (e) {
     return null;
@@ -26,7 +27,7 @@ const postLoginInfo = async (profileId, profileNickName) => {
     nickname: profileNickName,
   };
   try {
-    return await axios.post(`${baseApiURL}/login`, profile);
+    return await client.post(`${baseApiURL}/login`, profile);
   } catch (e) {
     return null;
   }
@@ -34,7 +35,7 @@ const postLoginInfo = async (profileId, profileNickName) => {
 
 const getAllBrandPromotions = async () => {
   try {
-    return await axios.get(`${baseApiURL}/api/promotions`);
+    return await client.get(`${baseApiURL}/api/promotions`);
   } catch (e) {
     return null;
   }
@@ -43,9 +44,9 @@ const getAllBrandPromotions = async () => {
 const getBrandPromotions = async (contentId) => {
   try {
     // 추후 paging처리 일단은 상수
-    // if (brandId === 0) return await axios.get(`${baseApiURL}/api/brands/promotions?page=1&size=100`);
-    // return await axios.get(`${baseApiURL}/api/brands/${brandId}/promotions?page=1&size=100`);
-    return await axios.get(`${baseApiURL}/api/promotions/${contentId}`);
+    return await client.get(
+      `${baseApiURL}/api/brands/${contentId}/promotions?page=1&size=20`,
+    );
   } catch (e) {
     return null;
   }
@@ -53,7 +54,7 @@ const getBrandPromotions = async (contentId) => {
 
 const getSearchBrand = async (name) => {
   try {
-    const result = await axios.get(
+    const result = await client.get(
       `${baseApiURL}/api/brands/search?name=${name}`,
     );
     return result.data;

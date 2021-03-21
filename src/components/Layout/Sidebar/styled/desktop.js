@@ -74,9 +74,8 @@ const StyledPanelHeader = styled(Panel)(
 );
 
 const StyledPanelContent = styled.p(
-  tw`font-semibold clickable py-3`,
+  tw`font-semibold text-22 clickable py-3`,
   css`
-    font-size: 22px;
     &:hover {
       color: ${(props) => props.theme.contrast_text};
     },

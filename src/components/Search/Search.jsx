@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { InputGroup, Input } from 'reactstrap';
 
@@ -23,10 +22,8 @@ const SearchBar = styled(InputGroup)(
 );
 
 const StyledInput = styled(Input)(
-  tw`border-0 border-l-2 pl-2 outline-none text-white`,
+  tw`bg-transparent border-0 border-l-2 pl-2 outline-none text-white text-18`,
   css`
-    background-color: transparent;
-    font-size: 18px;
     border-color: #4646;
     &::placeholder {
       color: #464646;

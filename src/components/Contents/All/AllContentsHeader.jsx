@@ -2,35 +2,23 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 
-
 const ContentsHeaderContainer = styled.div(
   tw`mt-6 pl-6 md:(flow-root mt-10 pl-10 items-center)`,
 );
 
 const CategoryHeader = styled.div(
-  tw`md:(font-bold) font-medium mb-6`,
+  tw`md:(font-bold text-30) font-medium text-20 mb-6`,
   css`
     color: ${(props) => props.theme.contrast_text};
-    @media (min-width: 768px) {
-      font-size: 30px;
-    }
-    @media (max-width: 767px) {
-      font-size: 20px;
-    }
   `,
 );
 const BrandHeader = styled.div(
-  tw`font-bold`,
+  tw`md:(text-26) font-bold text-20`,
   css`
     color: ${(props) => props.theme.contrast_text};
-    @media (min-width: 768px) {
-      font-size: 26px;
-    }
-    @media (max-width: 767px) {
-      font-size: 20px;
-    }
   `,
 );
+
 const AllContentsHeader = (props) => {
   const { categoryName, contentsInfo } = props;
 

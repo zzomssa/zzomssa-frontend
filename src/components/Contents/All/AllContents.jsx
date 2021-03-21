@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 
 import PromotionContext from '../../../context/PromotionContext';
@@ -7,8 +6,7 @@ import AllContentsHeader from './AllContentsHeader';
 import AllContentsBrandCardList from './AllContentsBrandCardList';
 import AllContentsMobileCardList from './AllContentsMobileCardList';
 
-
-const AllContents = (props) => {
+const AllContents = () => {
   const { setSelectedContentsId } = useContext(PromotionContext);
 
   const categoryName = 'HOME';

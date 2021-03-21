@@ -11,9 +11,8 @@ const FavoriteBarContainer = styled.div(
 );
 
 const FavoriteBarHeader = styled.div(
-  tw`font-bold clickable`,
+  tw`font-bold text-28 clickable`,
   css`
-    font-size: 28px;
     color: ${(props) => props.theme.contrast_text};
   `,
 );

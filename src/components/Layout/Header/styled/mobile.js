@@ -48,9 +48,8 @@ const MobileHR = styled.hr(
 );
 
 const MobileUserContainer = styled.div(
-  tw`m-6`,
+  tw`m-6 text-16`,
   css`
-    font-size: 16px;
     color: ${(props) => props.theme.contrast_text};
   `,
 );
@@ -85,7 +84,6 @@ const MobileStyledPanelHeader = styled(Panel)(
   tw`font-bold clickable py-4 pl-2 border-solid border-b-2`,
   css`
     border-color: ${(props) => props.theme.mobile_hr};
-
     .ant-collapse-header {
       display: flex;
       font-size: 20px;
@@ -106,10 +104,7 @@ const MobileStyledPanelHeader = styled(Panel)(
 );
 
 const MobileStyledPanelContent = styled.p(
-  tw`font-semibold clickable py-3 ml-6`,
-  css`
-    font-size: 16px;
-  `,
+  tw`font-semibold text-16 clickable py-3 ml-6`
 );
 
 const StyledLink = styled(Link)(

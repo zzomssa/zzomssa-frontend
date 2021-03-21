@@ -4,6 +4,7 @@ import tw from 'twin.macro';
 import KaKaoLogin from 'react-kakao-login';
 
 import { postLoginInfo } from '../../../lib/APIs';
+import LoginTools from '../../../constants/loginItem';
 import LoginContext from '../../../context/LoginContext';
 
 const KAKAO_TOKEN = '9030c74246944b49373d6baa1f446d7e';
@@ -33,10 +34,11 @@ const LoginText = styled.div(
   `,
 );
 
+const DeleteButton = styled.img(tw`block w-5 h-5 float-right clickable`, css``);
+
 const LoginWrapper = styled.div(
-  tw`mx-4`,
+  tw`mx-4 mt-0`,
   css`
-    margin-top: 0px;
     @media (min-width: 768px) {
       margin-top: 30px;
     }
@@ -89,6 +91,7 @@ const LoginModal = (props) => {
     <>
       <ModalBackground onClick={displayHandler} />
       <ModalContent>
+        <DeleteButton onClick={displayHandler} src={LoginTools.delete} />
         <LoginText>{LOGIN_TEXT}</LoginText>
         <LoginWrapper>
           <Imagewrapper>

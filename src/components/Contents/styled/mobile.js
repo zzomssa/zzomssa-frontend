@@ -30,23 +30,20 @@ const CardContent = styled.div(
   `,
 );
 const CardTitle = styled.p(
-  tw`pb-4 font-normal`,
+  tw`pb-4 font-normal text-16`,
   css`
-    font-size: 16px;
     color: ${(props) => props.theme.contrast_text};
   `,
 );
 const CardDuration = styled.p(
-  tw`font-light`,
+  tw`font-light text-12`,
   css`
-    font-size: 12px;
     color: ${(props) => props.theme.mo_card_duration};
   `,
 );
 const CardBrandInfo = styled.div(
-  tw`flex font-normal text-center items-center px-4`,
+  tw`flex font-normal text-16 text-center items-center px-4`,
   css`
-    font-size: 16px;
     color: ${(props) => props.theme.contrast_text};
   `,
 );

@@ -29,29 +29,21 @@ const CardContent = styled.div(
   `,
 );
 const CardTitle = styled.p(
-  tw`pb-4 font-bold leading-6`,
+  tw`pb-4 font-bold leading-6 text-22`,
   css`
-    font-size: 22px;
     color: ${(props) => props.theme.contrast_text};
   `,
 );
-const CardText = styled.p(
-  tw``,
-  css`
-    font-size: 16px;
-  `,
-);
+const CardText = styled.p(tw`text-16`);
 const CardDuration = styled.p(
-  tw`mt-4`,
+  tw`mt-4 text-16`,
   css`
-    font-size: 16px;
     color: ${(props) => props.theme.contrast_text};
   `,
 );
 const CardBrandInfo = styled.div(
-  tw`font-bold bg-black text-center py-4`,
+  tw`font-bold text-20 bg-black text-center py-4`,
   css`
-    font-size: 20px;
     color: ${(props) => props.theme.white};
   `,
 );
