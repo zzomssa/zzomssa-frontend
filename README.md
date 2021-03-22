@@ -1,7 +1,6 @@
 # zzomssa-frontend
 
 ## 코딩 컨벤션
-- Front-End, Back-End 모두 JS 사용으로 컨벤션 통일
 - [Airbnb JavaScript Convention](https://github.com/airbnb/javascript) 사용
 
 ### 사용 Tool
