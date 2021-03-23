@@ -25,7 +25,7 @@ const ModalContent = styled.div(
 );
 
 const LoginText = styled.div(
-  tw` sm:text-2xl font-medium text-black text-center`,
+  tw`absolute left-2/4 transform -translate-x-2/4 sm:text-2xl font-medium text-black text-center`,
   css`
     @media (min-width: 768) {
       padding-top: 5%;
@@ -33,24 +33,18 @@ const LoginText = styled.div(
   `,
 );
 
-const DeleteButton = styled.img(tw`block w-5 h-5 float-right clickable`, css``);
+const DeleteButton = styled.img(tw`block w-5 h-5 float-right clickable mr-5 md:(mr-0)`, css``);
 
 const LoginWrapper = styled.div(
   tw`mx-4 mt-0`,
   css`
-    @media (min-width: 768px) {
-      margin-top: 30px;
-    }
-    @media (min-width: 1024px) {
-      margin-top: 40px;
-    }
+    margin-top: 40px;
   `,
 );
 
 const Imagewrapper = styled.div(
-  tw` flex text-16 items-center justify-center w-full clickable sm: my-32 `,
+  tw` flex text-16 items-center justify-center w-full h-50px clickable sm: my-32 `,
   css`
-    height: 50px;
     margin: 5% auto;
     border-radius: 10px;
     background-color: ${(props) =>

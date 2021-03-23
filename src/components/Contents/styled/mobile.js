@@ -4,10 +4,9 @@ import tw from 'twin.macro';
 
 const CardListContainer = styled.div(tw`mt-6 items-center md:(hidden)`);
 const CustomCard = styled(Card)(
-  tw`mb-4 overflow-hidden border-b border-solid`,
+  tw`mb-4 overflow-hidden border-b border-solid shadow-card`,
   css`
     border-color: ${(props) => props.theme.card_border};
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   `,
 );
 const CustomCardImg = styled(CardImg)(
