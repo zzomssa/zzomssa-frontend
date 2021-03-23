@@ -19,7 +19,7 @@ const StyledPanelHomeHeader = styled(Panel)(
       width: 1px;
       font-size: 28px;
       @media (min-width: 1522px) {
-        margin: 0 12rem;
+        margin: 0 10rem;
       }
       @media (min-width: 1000px) and (max-width: 1521px) {
         margin: 0 4rem;
@@ -41,7 +41,7 @@ const StyledPanelHeader = styled(Panel)(
       width: 1px;
       font-size: 28px;
       @media (min-width: 1522px) {
-        margin: 0 12rem;
+        margin: 0 10rem;
       }
       @media (min-width: 1000px) and (max-width: 1521px) {
         margin: 0 4rem;
@@ -56,7 +56,7 @@ const StyledPanelHeader = styled(Panel)(
     .ant-collapse-content {
       width: 1px;
       @media (min-width: 1522px) {
-        margin: 0 13rem;
+        margin: 0 11rem;
       }
       @media (min-width: 1000px) and (max-width: 1521px) {
         margin: 0 5rem;

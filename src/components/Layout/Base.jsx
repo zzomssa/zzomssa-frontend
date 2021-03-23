@@ -8,6 +8,7 @@ import Sidebar from './Sidebar';
 import FavoriteBar from './FavoriteBar';
 
 const Wrapper = styled.div(tw`relative w-full truncate`);
+const ContentWrapper = styled.div(tw`max-w-screen-2xl mx-auto`);
 const ContentSection = styled.div(tw``, css``);
 
 const Base = (props) => {
@@ -16,9 +17,11 @@ const Base = (props) => {
     <Wrapper>
       <Header />
       <Banner />
-      <Sidebar />
-      <FavoriteBar />
-      <ContentSection>{children}</ContentSection>
+      <ContentWrapper>
+        <Sidebar />
+        <FavoriteBar />
+        <ContentSection>{children}</ContentSection>
+      </ContentWrapper>
     </Wrapper>
   );
 };
