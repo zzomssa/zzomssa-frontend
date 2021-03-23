@@ -21,15 +21,15 @@ const AppProvider = ({ contexts, children }) =>
   );
 
 const App = () => (
-  <AppProvider 
+  <AppProvider
     contexts={[PromotionProvider, ColorProvider, LoginProvider, MenuProvider]}
   >
     <GlobalStyles />
-    <Analytics id="UA-192829821-1">
-      <BrowserRouter basename="/">
+    <BrowserRouter basename="/">
+      <Analytics id="UA-192829821-1">
         <Routes />
-      </BrowserRouter>
-    </Analytics>
+      </Analytics>
+    </BrowserRouter>
   </AppProvider>
 );
 
