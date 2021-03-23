@@ -20,6 +20,7 @@
     "react-responsive-carousel": "^3.2.11",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-router-ga": "^1.2.3",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.9.0",
     "styled-components": "^5.2.1",

@@ -18,10 +18,7 @@ const ModalBackground = styled.div(
 
 const ModalContent = styled.div(
   tw` left-2/4 transform -translate-x-2/4 py-6 absolute bg-white z-100 outline-none rounded-md text-xl font-bold
-  sm:mt-40 md:(px-6)`,
-  css`
-    margin-top: 10rem;
-  `,
+  mt-40 md:(px-6)`,
 );
 
 const LoginText = styled.div(
@@ -33,7 +30,10 @@ const LoginText = styled.div(
   `,
 );
 
-const DeleteButton = styled.img(tw`block w-5 h-5 float-right clickable mr-5 md:(mr-0)`, css``);
+const DeleteButton = styled.img(
+  tw`block w-5 h-5 float-right clickable mr-5 md:(mr-0)`,
+  css``,
+);
 
 const LoginWrapper = styled.div(
   tw`mx-4 mt-0`,

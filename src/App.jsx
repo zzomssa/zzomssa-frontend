@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import Analytics from 'react-router-ga';
 
 import { GlobalStyles } from './style';
 
@@ -20,13 +21,15 @@ const AppProvider = ({ contexts, children }) =>
   );
 
 const App = () => (
-  <AppProvider
+  <AppProvider 
     contexts={[PromotionProvider, ColorProvider, LoginProvider, MenuProvider]}
   >
     <GlobalStyles />
-    <BrowserRouter basename="/">
-      <Routes />
-    </BrowserRouter>
+    <Analytics id="UA-192829821-1">
+      <BrowserRouter basename="/">
+        <Routes />
+      </BrowserRouter>
+    </Analytics>
   </AppProvider>
 );
 
