@@ -51,7 +51,9 @@ const MobileUserContainer = styled.div(
     color: ${(props) => props.theme.contrast_text};
   `,
 );
-const MobileUserContent = styled.p(tw`my-2`);
+const MobileUserContent = styled.div(
+  tw`my-2 whitespace-normal`
+);
 const MobileLogoutButton = styled(Button)(
   tw`mt-2 mb-4 h-25px border-none rounded-2xl float-right outline-none clickable`,
   css`
@@ -61,7 +63,7 @@ const MobileLogoutButton = styled(Button)(
 );
 
 const MobileStyledPanelHomeHeader = styled(Panel)(
-  tw`font-bold clickable py-4 pl-2 border-solid border-b-2`,
+  tw`font-normal clickable py-4 pl-2 border-solid border-b-2`,
   css`
     border-color: ${(props) => props.theme.mobile_hr};
 
@@ -78,7 +80,7 @@ const MobileStyledPanelHomeHeader = styled(Panel)(
 );
 
 const MobileStyledPanelHeader = styled(Panel)(
-  tw`font-bold clickable py-4 pl-2 border-solid border-b-2`,
+  tw`font-normal clickable py-4 pl-2 border-solid border-b-2`,
   css`
     border-color: ${(props) => props.theme.mobile_hr};
     .ant-collapse-header {
@@ -101,7 +103,7 @@ const MobileStyledPanelHeader = styled(Panel)(
 );
 
 const MobileStyledPanelContent = styled.p(
-  tw`font-semibold text-16 clickable py-3 ml-6`
+  tw`font-normal text-16 clickable py-3 ml-6`,
 );
 
 const StyledLink = styled(Link)(

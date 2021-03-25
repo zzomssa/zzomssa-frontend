@@ -7,13 +7,13 @@ const ContentsHeaderContainer = styled.div(
 );
 
 const CategoryHeader = styled.div(
-  tw`md:(font-bold text-30) font-medium text-20 mb-6`,
+  tw`md:(font-normal text-30) font-medium text-20 mb-6`,
   css`
     color: ${(props) => props.theme.contrast_text};
   `,
 );
 const BrandHeader = styled.div(
-  tw`md:(text-26) font-bold text-20`,
+  tw`md:(text-26) font-normal text-20`,
   css`
     color: ${(props) => props.theme.contrast_text};
   `,

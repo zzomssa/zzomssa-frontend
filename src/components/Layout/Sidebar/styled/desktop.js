@@ -13,7 +13,7 @@ const SidebarContainer = styled.div(
 );
 
 const StyledPanelHomeHeader = styled(Panel)(
-  tw`font-bold clickable py-2`,
+  tw`font-normal clickable py-2`,
   css`
     .ant-collapse-header {
       width: 1px;
@@ -35,7 +35,7 @@ const StyledPanelHomeHeader = styled(Panel)(
 );
 
 const StyledPanelHeader = styled(Panel)(
-  tw`font-bold clickable py-2`,
+  tw`font-normal clickable py-2`,
   css`
     .ant-collapse-header {
       width: 1px;
@@ -74,7 +74,7 @@ const StyledPanelHeader = styled(Panel)(
 );
 
 const StyledPanelContent = styled.p(
-  tw`font-semibold text-22 clickable py-3`,
+  tw`font-normal text-22 clickable py-3`,
   css`
     &:hover {
       color: ${(props) => props.theme.contrast_text};
