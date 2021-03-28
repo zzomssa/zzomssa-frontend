@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-// import axios from 'axios';
 import client from './Axios';
 
 const baseApiURL = 'https://zzomsa.tk';
@@ -36,18 +34,16 @@ const postLoginInfo = async (profileId, profileNickName) => {
 
 const getAllBrandPromotions = async (page, size) => {
   try {
-    console.log(size);
     return await client.get(`${baseApiURL}/api/brands/promotions?page=${page}&size=${size}`);
   } catch (e) {
     return null;
   }
 };
 
-const getBrandPromotions = async (contentId) => {
+const getBrandPromotions = async (contentId, page, size) => {
   try {
-    // 추후 paging처리 일단은 상수
     return await client.get(
-      `${baseApiURL}/api/brands/${contentId}/promotions?page=1&size=20`,
+      `${baseApiURL}/api/brands/${contentId}/promotions?page=${page}&size=${size}`,
     );
   } catch (e) {
     return null;

@@ -54,6 +54,9 @@ const PromotionProvider = ({ children }) => {
       if (selectedContentsId === 0) {
         const _promotions = await API.getAllBrandPromotions(page, itemSize);
         setPromotions(_promotions);
+      } else if (selectedContentsId) {
+        const _promotions = await API.getBrandPromotions(selectedContentsId, page, itemSize);
+        setPromotions(_promotions);
       }
       setLoding(false);
     };
