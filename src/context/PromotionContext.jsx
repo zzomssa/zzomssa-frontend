@@ -40,7 +40,7 @@ const PromotionProvider = ({ children }) => {
         setSearchTarget(searchTerm);
         setPromotions(_promotions);
       } else if (selectedContentsId) {
-        const _promotions = await API.getBrandPromotions(selectedContentsId);
+        const _promotions = await API.getBrandPromotions(selectedContentsId, page, size);
         setPromotions(_promotions);
       }
     };
