@@ -3,6 +3,8 @@ import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
+import LoadingTools from '../../../constants/loadingItem';
+
 import { getSelectedBrandInfo } from '../../../lib/Util';
 import {
   CardListContainer,
@@ -13,6 +15,7 @@ import {
   CardTitle,
   CardDuration,
   CardBrandInfo,
+  LoadingIcon,
   LastItem,
 } from '../styled/mobile';
 
@@ -55,8 +58,10 @@ const AllContentsMobileCardList = () => {
             </>
           );
         })}
+        <LastItem ref={setTarget}>
+          <LoadingIcon src={LoadingTools.Logo} />
+        </LastItem>
       </CardListContainer>
-      <LastItem ref={setTarget} />
     </>
   );
 };

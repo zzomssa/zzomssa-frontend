@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
 
+import LoadingTools from '../../../constants/loadingItem';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import {
@@ -19,6 +20,7 @@ import {
   CardText,
   CardDuration,
   CardBrandInfo,
+  LoadingIcon,
   LastItem,
 } from '../styled/desktop';
 
@@ -74,8 +76,10 @@ const ContentsBrandCardList = (props) => {
             </>
           );
         })}
+        <LastItem ref={setTarget}>
+          <LoadingIcon src={LoadingTools.Logo} />
+        </LastItem>
       </CardListContainer>
-      <LastItem ref={setTarget} />
     </>
   );
 };

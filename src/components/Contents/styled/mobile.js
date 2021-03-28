@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Card, CardImg, CardBody } from 'reactstrap';
 import tw from 'twin.macro';
 
-const CardListContainer = styled.div(tw`mt-6 items-center md:(hidden)`);
+const CardListContainer = styled.div(tw`mt-6 mb-20 items-center md:(hidden)`);
 const CustomCard = styled(Card)(
   tw`mb-4 overflow-hidden border-b border-solid shadow-card`,
   css`
@@ -44,7 +44,20 @@ const CardBrandInfo = styled.div(
   `,
 );
 
-const LastItem = styled.div(tw``, css``);
+const LoadingIcon = styled.img(
+  tw`w-10 h-10 z-100`,
+  css`
+    transform-origin: 50% 50%;
+    animation: spin 1.5s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  `,
+);
+
+const LastItem = styled.div(tw`absolute left-2/4 transform -translate-x-2/4`);
 
 export {
   CardListContainer,
@@ -55,5 +68,6 @@ export {
   CardTitle,
   CardDuration,
   CardBrandInfo,
+  LoadingIcon,
   LastItem
 };

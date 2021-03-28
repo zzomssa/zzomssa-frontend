@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
-
+import LoadingTools from '../../../constants/loadingItem';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import {
@@ -12,6 +12,7 @@ import {
   CardTitle,
   CardDuration,
   CardBrandInfo,
+  LoadingIcon,
   LastItem,
 } from '../styled/mobile';
 
@@ -53,8 +54,10 @@ const ContentsMobileCardList = (props) => {
             </>
           );
         })}
+        <LastItem ref={setTarget}>
+          <LoadingIcon src={LoadingTools.Logo} />
+        </LastItem>
       </CardListContainer>
-      <LastItem ref={setTarget} />
     </>
   );
 };

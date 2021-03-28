@@ -4,9 +4,7 @@ import tw from 'twin.macro';
 
 import LoadingTools from '../../constants/loadingItem';
 
-const LoadingBackground = styled.div(
-  tw`bg-black bg-opacity-50 outline-none`,
-);
+// const LoadingBackground = styled.div(tw`bg-black bg-opacity-50 outline-none`);
 
 const LoadingIcon = styled.img(
   tw`w-10 h-10 z-100`,
@@ -22,9 +20,9 @@ const LoadingIcon = styled.img(
 );
 
 const Loading = () => (
-  <LoadingBackground>
-    <LoadingIcon src={LoadingTools.Logo} />
-  </LoadingBackground>
+  <LoadingIcon src={LoadingTools.Logo} />
+  // <LoadingBackground>
+  // </LoadingBackground>
 );
 
 export default Loading;

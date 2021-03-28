@@ -3,6 +3,8 @@ import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
+import LoadingTools from '../../../constants/loadingItem';
+
 import {
   replaceAll,
   getSelectedBrandInfo,
@@ -20,6 +22,7 @@ import {
   CardText,
   CardDuration,
   CardBrandInfo,
+  LoadingIcon,
   LastItem,
 } from '../styled/desktop';
 
@@ -76,8 +79,10 @@ const AllContentsBrandCardList = () => {
             </>
           );
         })}
+        <LastItem ref={setTarget}>
+          <LoadingIcon src={LoadingTools.Logo} />
+        </LastItem>
       </CardListContainer>
-      <LastItem ref={setTarget} />
     </>
   );
 };
