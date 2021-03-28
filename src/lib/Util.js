@@ -58,7 +58,7 @@ const checkDuration = (startAt, endAt) =>
   startAt && endAt ? `${DURATION} ${startAt} ~ ${endAt}` : NONDURATION;
 
 const descLengthOverCut = (desc) =>
-  desc?.length > 50 ? `${desc.substr(0, 50)} ...` : desc;
+  desc?.length > 35 ? `${desc.substr(0, 35)} ...` : desc;
 
 export {
   makeMenu,

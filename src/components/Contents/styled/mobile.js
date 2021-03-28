@@ -44,6 +44,8 @@ const CardBrandInfo = styled.div(
   `,
 );
 
+const LastItem = styled.div(tw``, css``);
+
 export {
   CardListContainer,
   CustomCard,
@@ -53,4 +55,5 @@ export {
   CardTitle,
   CardDuration,
   CardBrandInfo,
+  LastItem
 };

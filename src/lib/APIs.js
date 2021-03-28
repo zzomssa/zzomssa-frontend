@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // import axios from 'axios';
 import client from './Axios';
 
@@ -33,9 +34,10 @@ const postLoginInfo = async (profileId, profileNickName) => {
   }
 };
 
-const getAllBrandPromotions = async () => {
+const getAllBrandPromotions = async (page, size) => {
   try {
-    return await client.get(`${baseApiURL}/api/brands/promotions`);
+    console.log(size);
+    return await client.get(`${baseApiURL}/api/brands/promotions?page=${page}&size=${size}`);
   } catch (e) {
     return null;
   }

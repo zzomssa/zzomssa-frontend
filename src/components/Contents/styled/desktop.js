@@ -46,6 +46,9 @@ const CardBrandInfo = styled.div(
   `,
 );
 
+const LastItem = styled.div(tw``, css``);
+
+// const LastItem = styled.div();
 // const StyledLink = styled(Link)(
 //   tw``,
 //   css`
@@ -70,4 +73,5 @@ export {
   CardText,
   CardDuration,
   CardBrandInfo,
+  LastItem
 };

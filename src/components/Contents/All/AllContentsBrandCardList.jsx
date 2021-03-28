@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
+import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import {
   replaceAll,
@@ -19,51 +20,65 @@ import {
   CardText,
   CardDuration,
   CardBrandInfo,
+  LastItem,
 } from '../styled/desktop';
 
 const AllContentsBrandCardList = () => {
-  const { promotions } = useContext(PromotionContext);
+  const { promotions, setItemSize, loading } = useContext(PromotionContext);
   const { menu } = useContext(MenuContext);
+  const [target, setTarget] = useState(null);
+
+  useInfiniteScroll({
+    target,
+    onIntersect: ([{ isIntersecting }]) => {
+      if (isIntersecting) {
+        if (loading === false) setItemSize((prevSize) => prevSize + 20);
+      }
+    },
+  });
 
   return (
-    <CardListContainer>
-      {promotions?.data?.map((promotion) => {
-        const {
-          id,
-          description,
-          startAt,
-          endAt,
-          image,
-          title,
-          url,
-          BrandId,
-        } = promotion;
-        const duration = checkDuration(startAt, endAt);
-        const parsedDescription = descLengthOverCut(description);
-        const refinedTitle = replaceAll(title, '\r\n', ' ');
-        const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
-        const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
-        return (
-          <>
-            <CustomCard key={id}>
-              <CustomCardImg
-                src={image}
-                alt="Card image cap"
-                onClick={() => window.open(url, '_blank')}
-              />
-              <CustomCardBody>
-                <CardContent>
-                  <CardTitle>{refinedTitle}</CardTitle>
-                  <CardText>{refinedDesc}</CardText>
-                  <CardDuration>{duration}</CardDuration>
-                </CardContent>
-                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
-              </CustomCardBody>
-            </CustomCard>
-          </>
-        );
-      })}
-    </CardListContainer>
+    <>
+      <CardListContainer>
+        {promotions?.data?.map((promotion) => {
+          const {
+            id,
+            description,
+            startAt,
+            endAt,
+            image,
+            title,
+            url,
+            BrandId,
+          } = promotion;
+          const duration = checkDuration(startAt, endAt);
+          const parsedDescription = descLengthOverCut(description);
+          const refinedTitle = replaceAll(title, '\r\n', ' ');
+          const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
+          const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
+          return (
+            <>
+              <CustomCard key={id}>
+                <CustomCardImg
+                  src={image}
+                  alt="Card image cap"
+                  onClick={() => window.open(url, '_blank')}
+                />
+                <CustomCardBody>
+                  <CardContent>
+                    <CardTitle>{refinedTitle}</CardTitle>
+                    <CardText>{refinedDesc}</CardText>
+                    <CardDuration>{duration}</CardDuration>
+                  </CardContent>
+                  <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+                </CustomCardBody>
+              </CustomCard>
+            </>
+          );
+        })}
+      </CardListContainer>
+      <LastItem ref={setTarget} />
+    </>
   );
 };
 

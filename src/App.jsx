@@ -10,6 +10,7 @@ import { LoginProvider } from './context/LoginContext';
 import { PromotionProvider } from './context/PromotionContext';
 
 import Routes from './Routes';
+import ScrollToTop from './lib/ScrollToTop';
 
 const AppProvider = ({ contexts, children }) =>
   contexts.reduce(
@@ -26,9 +27,11 @@ const App = () => (
   >
     <GlobalStyles />
     <BrowserRouter basename="/">
-      <Analytics id="UA-192829821-1">
-        <Routes />
-      </Analytics>
+      <ScrollToTop>
+        <Analytics id="UA-192829821-1">
+          <Routes />
+        </Analytics>
+      </ScrollToTop>
     </BrowserRouter>
   </AppProvider>
 );
