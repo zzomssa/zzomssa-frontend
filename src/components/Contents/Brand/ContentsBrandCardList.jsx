@@ -57,23 +57,21 @@ const ContentsBrandCardList = (props) => {
           const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
 
           return (
-            <>
-              <CustomCard key={id}>
-                <CustomCardImg
-                  src={image}
-                  alt="Card image cap"
-                  onClick={() => window.open(url, '_blank')}
-                />
-                <CustomCardBody>
-                  <CardContent>
-                    <CardTitle>{refinedTitle}</CardTitle>
-                    <CardText>{refinedDesc}</CardText>
-                    <CardDuration>{duration}</CardDuration>
-                  </CardContent>
-                  <CardBrandInfo>{brandName}</CardBrandInfo>
-                </CustomCardBody>
-              </CustomCard>
-            </>
+            <CustomCard key={`brand_${title}_${id}`}>
+              <CustomCardImg
+                src={image}
+                alt="Card image cap"
+                onClick={() => window.open(url, '_blank')}
+              />
+              <CustomCardBody>
+                <CardContent>
+                  <CardTitle>{refinedTitle}</CardTitle>
+                  <CardText>{refinedDesc}</CardText>
+                  <CardDuration>{duration}</CardDuration>
+                </CardContent>
+                <CardBrandInfo>{brandName}</CardBrandInfo>
+              </CustomCardBody>
+            </CustomCard>
           );
         })}
         <LastItem ref={setTarget}>

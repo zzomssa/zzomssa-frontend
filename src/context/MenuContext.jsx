@@ -10,7 +10,8 @@ const MenuProvider = ({ children }) => {
   const [menu, setMenu] = useState({});
   const [selectedCategory, setSelectedCategory] = useState(0);
   const [selectedSubCategory, setSelectedSubCategory] = useState(0);
-  const menuArr = [];
+  const [menuArr, setMenuArr] = useState([]);
+
   const value = {
     categories,
     menu,
@@ -27,10 +28,16 @@ const MenuProvider = ({ children }) => {
       const _brands = await API.getBrand();
 
       setCategories(_categories);
-      if (_categories && _brands) setMenu(makeMenu(_categories, _brands));
+      if (_categories && _brands) {
+        const _menu = makeMenu(_categories, _brands);
+        const _menuArr = [];
+
+        Object.values(_menu).map((_value) => _menuArr.push(..._value));
+        setMenu(_menu);
+        setMenuArr(_menuArr);
+      }
     };
     getMenu();
-    Object.values(menu).map((_value) => menuArr.push(..._value));
   }, []);
 
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;

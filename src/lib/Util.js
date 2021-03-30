@@ -23,21 +23,16 @@ const getCategoryName = (categories, selectedCategory) => {
   return categoryInfo[0] ? categoryInfo[0].name : null;
 };
 
-const getSelectedBrandInfo = (menu, selectedBrand) => {
-  const menuArr = [];
-  Object.values(menu).map((value) => menuArr.push(...value));
+const getSelectedBrandInfo = (menuArr, selectedBrand) => {
   const _selectedBrandInfo = menuArr.filter(
     (brand) => brand.id === selectedBrand,
   );
   return _selectedBrandInfo[0];
 };
 
-const getSelectedContentsHeaderInfo = (match, menu, categories) => {
+const getSelectedContentsHeaderInfo = (match, menuArr, categories) => {
   const { params } = match;
   const subCategory = params.subcategory;
-
-  const menuArr = [];
-  Object.values(menu).map((value) => menuArr.push(...value));
 
   const _selectedContentsInfo = menuArr.filter(
     (_subCategory) => _subCategory.name === subCategory,

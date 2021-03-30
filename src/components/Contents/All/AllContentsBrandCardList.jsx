@@ -28,7 +28,7 @@ import {
 
 const AllContentsBrandCardList = () => {
   const { promotions, setItemSize, loading } = useContext(PromotionContext);
-  const { menu } = useContext(MenuContext);
+  const { menuArr } = useContext(MenuContext);
   const [target, setTarget] = useState(null);
 
   useInfiniteScroll({
@@ -58,25 +58,23 @@ const AllContentsBrandCardList = () => {
           const parsedDescription = descLengthOverCut(description);
           const refinedTitle = replaceAll(title, '\r\n', ' ');
           const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
-          const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
+          const selectedBrandInfo = getSelectedBrandInfo(menuArr, BrandId);
           return (
-            <>
-              <CustomCard key={id}>
-                <CustomCardImg
-                  src={image}
-                  alt="Card image cap"
-                  onClick={() => window.open(url, '_blank')}
-                />
-                <CustomCardBody>
-                  <CardContent>
-                    <CardTitle>{refinedTitle}</CardTitle>
-                    <CardText>{refinedDesc}</CardText>
-                    <CardDuration>{duration}</CardDuration>
-                  </CardContent>
-                  <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
-                </CustomCardBody>
-              </CustomCard>
-            </>
+            <CustomCard key={`all_${title}_${id}`}>
+              <CustomCardImg
+                src={image}
+                alt="Card image cap"
+                onClick={() => window.open(url, '_blank')}
+              />
+              <CustomCardBody>
+                <CardContent>
+                  <CardTitle>{refinedTitle}</CardTitle>
+                  <CardText>{refinedDesc}</CardText>
+                  <CardDuration>{duration}</CardDuration>
+                </CardContent>
+                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+              </CustomCardBody>
+            </CustomCard>
           );
         })}
         <LastItem ref={setTarget}>

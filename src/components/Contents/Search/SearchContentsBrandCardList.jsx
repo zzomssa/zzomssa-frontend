@@ -23,7 +23,7 @@ import {
 
 const SearchContentsBrandCardList = () => {
   const { promotions } = useContext(PromotionContext);
-  const { menu } = useContext(MenuContext);
+  const { menuArr } = useContext(MenuContext);
   return (
     <CardListContainer>
       {promotions?.data?.map((promotion) => {
@@ -41,25 +41,23 @@ const SearchContentsBrandCardList = () => {
         const parsedDescription = descLengthOverCut(description);
         const refinedTitle = replaceAll(title, '\r\n', ' ');
         const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
-        const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
+        const selectedBrandInfo = getSelectedBrandInfo(menuArr, BrandId);
         return (
-          <>
-            <CustomCard key={id}>
-              <CustomCardImg
-                src={image}
-                alt="Card image cap"
-                onClick={() => window.open(url, '_blank')}
-              />
-              <CustomCardBody>
-                <CardContent>
-                  <CardTitle>{refinedTitle}</CardTitle>
-                  <CardText>{refinedDesc}</CardText>
-                  <CardDuration>{duration}</CardDuration>
-                </CardContent>
-                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
-              </CustomCardBody>
-            </CustomCard>
-          </>
+          <CustomCard key={`search_${title}_${id}`}>
+            <CustomCardImg
+              src={image}
+              alt="Card image cap"
+              onClick={() => window.open(url, '_blank')}
+            />
+            <CustomCardBody>
+              <CardContent>
+                <CardTitle>{refinedTitle}</CardTitle>
+                <CardText>{refinedDesc}</CardText>
+                <CardDuration>{duration}</CardDuration>
+              </CardContent>
+              <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+            </CustomCardBody>
+          </CustomCard>
         );
       })}
     </CardListContainer>

@@ -8,13 +8,14 @@ import SearchContentsHeader from './SearchContentsHeader';
 import SearchContentsBrandCardList from './SearchContentsBrandCardList';
 import SearchContentsMobileCardList from './SearchContentsMobileCardList';
 
+const categoryName = 'SEARCH';
+
 const SearchContents = () => {
   const { setSelectedContentsId } = useContext(PromotionContext);
   const {
     selectedCategory,
     selectedSubCategory,
   } = useContext(MenuContext);
-  const categoryName = 'SEARCH';
 
   if (selectedCategory === 0 && selectedSubCategory === 0) {
     return <Redirect to="/" />;

@@ -21,16 +21,17 @@ const Contents = (props) => {
   const {
     selectedCategory,
     selectedSubCategory,
-    menu,
+    menuArr,
     categories,
   } = useContext(MenuContext);
+
   if (selectedCategory === 0 && selectedSubCategory === 0) {
     return <Redirect to="/" />;
   }
   const { setSelectedContentsId } = useContext(PromotionContext);
   const { categoryName, contentsInfo } = getSelectedContentsHeaderInfo(
     match,
-    menu,
+    menuArr,
     categories,
   );
   setSelectedContentsId(contentsInfo.id);

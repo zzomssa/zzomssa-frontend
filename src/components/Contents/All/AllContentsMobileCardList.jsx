@@ -21,7 +21,7 @@ import {
 
 const AllContentsMobileCardList = () => {
   const { promotions, setItemSize, loading } = useContext(PromotionContext);
-  const { menu } = useContext(MenuContext);
+  const { menuArr } = useContext(MenuContext);
   const [target, setTarget] = useState(null);
 
   useInfiniteScroll({
@@ -38,24 +38,22 @@ const AllContentsMobileCardList = () => {
       <CardListContainer>
         {promotions?.data?.map((promotion) => {
           const { id, description, image, title, url, BrandId } = promotion;
-          const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
+          const selectedBrandInfo = getSelectedBrandInfo(menuArr, BrandId);
           return (
-            <>
-              <CustomCard key={id}>
-                <CustomCardImg
-                  src={image}
-                  alt="Card image cap"
-                  onClick={() => window.open(url, '_blank')}
-                />
-                <CustomCardBody>
-                  <CardContent>
-                    <CardTitle>{title}</CardTitle>
-                    <CardDuration>{description}</CardDuration>
-                  </CardContent>
-                  <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
-                </CustomCardBody>
-              </CustomCard>
-            </>
+            <CustomCard key={`all_mo_${title}_${id}`}>
+              <CustomCardImg
+                src={image}
+                alt="Card image cap"
+                onClick={() => window.open(url, '_blank')}
+              />
+              <CustomCardBody>
+                <CardContent>
+                  <CardTitle>{title}</CardTitle>
+                  <CardDuration>{description}</CardDuration>
+                </CardContent>
+                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+              </CustomCardBody>
+            </CustomCard>
           );
         })}
         <LastItem ref={setTarget}>
