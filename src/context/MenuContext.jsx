@@ -8,9 +8,9 @@ const MenuContext = createContext();
 const MenuProvider = ({ children }) => {
   const [categories, setCategories] = useState();
   const [menu, setMenu] = useState({});
+  const [menuArr, setMenuArr] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(0);
   const [selectedSubCategory, setSelectedSubCategory] = useState(0);
-  const [menuArr, setMenuArr] = useState([]);
 
   const value = {
     categories,

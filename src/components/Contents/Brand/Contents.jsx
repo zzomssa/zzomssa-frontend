@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import { useWindowWidth } from '@react-hook/window-size';
@@ -17,6 +17,7 @@ import ContentsMobileCardList from './ContentsMobileCardList';
 const Contents = (props) => {
   const { match } = props;
   const windowWitdh = useWindowWidth();
+  const { setSelectedContentsId } = useContext(PromotionContext);
 
   const {
     selectedCategory,
@@ -25,26 +26,40 @@ const Contents = (props) => {
     categories,
   } = useContext(MenuContext);
 
+  const [loading, setLoading] = useState(true);
+  const [categoryName, setCategoryName] = useState();
+  const [contentsInfo, setContentsInfo] = useState();
+
   if (selectedCategory === 0 && selectedSubCategory === 0) {
     return <Redirect to="/" />;
   }
-  const { setSelectedContentsId } = useContext(PromotionContext);
-  const { categoryName, contentsInfo } = getSelectedContentsHeaderInfo(
-    match,
-    menuArr,
-    categories,
-  );
-  setSelectedContentsId(contentsInfo.id);
+
+  useEffect(() => {
+    const { categoryName, contentsInfo } = getSelectedContentsHeaderInfo(
+      match,
+      menuArr,
+      categories,
+    );
+    setCategoryName(categoryName);
+    setContentsInfo(contentsInfo);
+    setSelectedContentsId(contentsInfo.id);
+    setLoading(false);
+  }, [match]);
 
   return (
-    <>
-      <ContentsHeader categoryName={categoryName} contentsInfo={contentsInfo} />
-      {windowWitdh >= DESK_MIN_WIDTH ? (
-        <ContentsBrandCardList brandName={contentsInfo.name} />
-      ) : (
-        <ContentsMobileCardList brandName={contentsInfo.name} />
-      )}
-    </>
+    !loading && (
+      <>
+        <ContentsHeader
+          categoryName={categoryName}
+          contentsInfo={contentsInfo}
+        />
+        {windowWitdh >= DESK_MIN_WIDTH ? (
+          <ContentsBrandCardList brandName={contentsInfo.name} />
+        ) : (
+          <ContentsMobileCardList brandName={contentsInfo.name} />
+        )}
+      </>
+    )
   );
 };
 export default Contents;

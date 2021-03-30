@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { useWindowWidth } from '@react-hook/window-size';
 import PromotionContext from '../../../context/PromotionContext';
@@ -17,7 +17,10 @@ const AllContents = () => {
   const contentsInfo = {
     name: 'ALL',
   };
-  setSelectedContentsId(0);
+
+  useEffect(() => {
+    setSelectedContentsId(0);
+  }, []);
 
   return (
     <>

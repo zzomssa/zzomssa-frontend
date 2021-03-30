@@ -52,7 +52,10 @@
       "react/no-children-prop": 0,
       "no-underscore-dangle": 0,
       "import/no-named-as-default-member": 0,
-      "import/named": 0
+      "import/no-named-as-default": 0,
+      "import/named": 0,
+      "no-shadow": 0,
+      "consistent-return": 0
     },
     "env": {
       "browser": true
