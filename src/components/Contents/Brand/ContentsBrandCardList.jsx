@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
+import ColorContext from '../../../context/ColorContext';
 
 import LoadingTools from '../../../constants/loadingItem';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
@@ -26,6 +27,7 @@ import {
 
 const ContentsBrandCardList = (props) => {
   const { brandName } = props;
+  const { theme } = useContext(ColorContext);
   const { promotions, setItemSize, loading } = useContext(PromotionContext);
   const [target, setTarget] = useState(null);
 
@@ -75,7 +77,13 @@ const ContentsBrandCardList = (props) => {
           );
         })}
         <LastItem ref={setTarget}>
-          <LoadingIcon src={LoadingTools.Logo} />
+          <LoadingIcon
+            src={
+              theme === 'light'
+                ? LoadingTools.LogoWhite
+                : LoadingTools.LogoBlack
+            }
+          />
         </LastItem>
       </CardListContainer>
     </>

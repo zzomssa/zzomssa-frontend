@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import ColorContext from '../../../context/ColorContext';
 import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
@@ -20,6 +21,7 @@ import {
 } from '../styled/mobile';
 
 const AllContentsMobileCardList = () => {
+  const { theme } = useContext(ColorContext);
   const { promotions, setItemSize, loading } = useContext(PromotionContext);
   const { menuArr } = useContext(MenuContext);
   const [target, setTarget] = useState(null);
@@ -57,7 +59,13 @@ const AllContentsMobileCardList = () => {
           );
         })}
         <LastItem ref={setTarget}>
-          <LoadingIcon src={LoadingTools.Logo} />
+          <LoadingIcon
+            src={
+              theme === 'light'
+                ? LoadingTools.LogoWhite
+                : LoadingTools.LogoBlack
+            }
+          />
         </LastItem>
       </CardListContainer>
     </>

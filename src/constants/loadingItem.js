@@ -1,7 +1,9 @@
-import Logo from '../assets/icons/logo_rotate.svg';
+import LogoWhite from '../assets/icons/logo_rotate_white.svg';
+import LogoBlack from '../assets/icons/logo_rotate_dark.svg';
 
 const LoadingTools = {
-  Logo,
+  LogoWhite,
+  LogoBlack,
 };
 
 export default LoadingTools;
