@@ -7,7 +7,7 @@ import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 import {
   replaceAll,
   checkDuration,
-  descLengthOverCut,
+  // descLengthOverCut
 } from '../../../lib/Util';
 
 import {
@@ -52,9 +52,9 @@ const ContentsBrandCardList = (props) => {
             url,
           } = promotion;
           const duration = checkDuration(startAt, endAt);
-          const parsedDescription = descLengthOverCut(description);
+          // const parsedDescription = descLengthOverCut(description);
           const refinedTitle = replaceAll(title, '\r\n', ' ');
-          const refinedDesc = replaceAll(parsedDescription, '\r\n', ' ');
+          const refinedDesc = replaceAll(description, '\r\n', ' ');
 
           return (
             <CustomCard key={`brand_${title}_${id}`}>

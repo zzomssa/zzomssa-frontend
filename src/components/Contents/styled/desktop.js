@@ -21,20 +21,20 @@ const CustomCardBody = styled(CardBody)(
 );
 
 const CardContent = styled.div(
-  tw`px-10 pt-6 truncate h-150px`,
+  tw`px-4 pt-4 truncate h-154px`,
   css`
     white-space: break-spaces;
   `,
 );
 const CardTitle = styled.p(
-  tw`pb-4 font-bold leading-6 text-22`,
+  tw`mb-2 font-bold overflow-clip overflow-hidden text-20 h-39px`,
   css`
     color: ${(props) => props.theme.contrast_text};
   `,
 );
-const CardText = styled.p(tw`text-16`);
+const CardText = styled.p(tw`mb-5 text-16 overflow-clip overflow-hidden h-63px`);
 const CardDuration = styled.p(
-  tw`mt-4 text-16`,
+  tw`text-16`,
   css`
     color: ${(props) => props.theme.contrast_text};
   `,
