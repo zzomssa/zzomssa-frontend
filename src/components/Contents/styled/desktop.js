@@ -27,7 +27,7 @@ const CardContent = styled.div(
   `,
 );
 const CardTitle = styled.p(
-  tw`mb-2 font-bold overflow-clip overflow-hidden text-20 h-39px`,
+  tw`mb-2 font-bold overflow-clip overflow-hidden text-20 h-40px`,
   css`
     color: ${(props) => props.theme.contrast_text};
   `,
