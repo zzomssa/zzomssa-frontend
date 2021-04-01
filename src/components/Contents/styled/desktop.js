@@ -32,7 +32,7 @@ const CardTitle = styled.p(
     color: ${(props) => props.theme.contrast_text};
   `,
 );
-const CardText = styled.p(tw`mb-5 text-16 overflow-clip overflow-hidden h-63px`);
+const CardText = styled.p(tw`mt-5 mb-1.5 text-16 overflow-clip overflow-hidden h-63px`);
 const CardDuration = styled.p(
   tw`text-16`,
   css`
