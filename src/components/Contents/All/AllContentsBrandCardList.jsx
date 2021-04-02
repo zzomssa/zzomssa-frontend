@@ -6,6 +6,8 @@ import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import LoadingTools from '../../../constants/loadingItem';
 
+import KakaoShareButton from '../Share/KakaoShareButton';
+
 import {
   replaceAll,
   getSelectedBrandInfo,
@@ -44,6 +46,7 @@ const AllContentsBrandCardList = () => {
   return (
     <>
       <CardListContainer>
+        <KakaoShareButton />
         {promotions?.data?.map((promotion) => {
           const {
             id,

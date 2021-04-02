@@ -55,7 +55,8 @@
       "import/no-named-as-default": 0,
       "import/named": 0,
       "no-shadow": 0,
-      "consistent-return": 0
+      "consistent-return": 0,
+      "import/prefer-default-export": 0
     },
     "env": {
       "browser": true
