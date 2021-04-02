@@ -2,16 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 
-const ContentsHeaderContainer = styled.div(
-  tw`mt-6 pl-6 md:(flow-root mt-10 pl-10 items-center)`,
-);
+import { ContentsHeaderContainer, CategoryHeader } from '../styled/desktop';
 
-const CategoryHeader = styled.div(
-  tw`md:(font-normal text-30) font-medium text-20 mb-6`,
-  css`
-    color: ${(props) => props.theme.contrast_text};
-  `,
-);
 const BrandHeader = styled.div(
   tw`md:(text-26) font-normal text-20`,
   css`

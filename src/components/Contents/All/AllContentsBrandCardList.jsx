@@ -10,7 +10,6 @@ import {
   replaceAll,
   getSelectedBrandInfo,
   checkDuration,
-  // descLengthOverCut,
 } from '../../../lib/Util';
 
 import {
@@ -57,7 +56,6 @@ const AllContentsBrandCardList = () => {
             BrandId,
           } = promotion;
           const duration = checkDuration(startAt, endAt);
-          // const parsedDescription = descLengthOverCut(description);
           const refinedTitle = replaceAll(title, '\r\n', ' ');
           const refinedDesc = replaceAll(description, '\r\n', ' ');
           const selectedBrandInfo = getSelectedBrandInfo(menuArr, BrandId);
