@@ -9,10 +9,12 @@ import tw from 'twin.macro';
 
 import { kakaoShareLogo } from '../../../constants/shareItem';
 
-const CustomButton = styled(Button)(tw`outline-none border-0 m-0 p-0 clickable`);
-const KakaoImg = styled.img(tw`w-6 h-6`);
+const CustomButton = styled(Button)(
+  tw`bg-transparent outline-none border-0 m-0 p-0 clickable float-right`,
+);
+const KakaoImg = styled.img(tw`w-7 h-7 rounded-lg`);
 const KakaoShareButton = (props) => {
-
+  const { categoryName } = props;
   const createKakaoButton = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -27,16 +29,16 @@ const KakaoShareButton = (props) => {
           description: '#리액트 #카카오 #공유버튼',
           imageUrl: 'IMAGE_URL', // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
-            webUrl: "https://www.naver.com",
+            webUrl: `https://www.zzomssa.com/brand${categoryName}`,
           },
         },
         buttons: [
           {
-            title: '웹으로 보기',
+            title: '보러 가기!',
             link: {
-              webUrl: window.location.href,
+              webUrl: `https://www.zzomssa.com/brand${categoryName}`,
             },
-          }
+          },
         ],
       });
     }

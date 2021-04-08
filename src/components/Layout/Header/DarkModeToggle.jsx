@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext } from 'react';
 
 import styled, { css } from 'styled-components';
@@ -8,7 +7,7 @@ import ColorContext from '../../../context/ColorContext';
 import { Moon, Sun } from '../../../constants/headerItem';
 
 const ToggleContainer = styled.div(
-  tw`relative flex items-center w-65px h-27px p-px rounded-full`,
+  tw`relative flex clickable items-center w-65px h-27px p-px rounded-full`,
   css`
     background-color: #c4c4c4;
   `,
@@ -17,8 +16,8 @@ const ToggleContainer = styled.div(
 const ToggleButton = styled.div(
   tw`absolute flex items-center justify-center w-23px h-23px duration-300 rounded-full shadow-toggle`,
   css`
-    background-color: ${(props) => (props.selected ? '#ffea00' : '#000000')};
-    left: ${(props) => (props.selected ? '8px' : '36px')};
+    background-color: ${(props) => (props.selected ? '#F2994A' : '#000000')};
+    left: ${(props) => (props.selected ? '3px' : '42px')};
   `,
 );
 

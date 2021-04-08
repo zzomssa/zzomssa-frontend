@@ -18,6 +18,8 @@ const ContentsHeaderContainer = styled.div(
   tw`mt-6 pl-6 md:(flow-root mt-10 pl-10 items-center)`,
 );
 
+const ContentsSubHeaderContainer = styled.div(tw`flex justify-between mr-8`);
+
 const CategoryHeader = styled.div(
   tw`md:(font-normal text-30) font-normal text-20 mb-6`,
   css`
@@ -78,6 +80,7 @@ const LoadingIcon = styled.img(
 );
 
 const LastItem = styled.div(tw`absolute left-2/4 transform -translate-x-2/4`);
+
 // const StyledLink = styled(Link)(
 //   tw``,
 //   css`
@@ -98,6 +101,7 @@ export {
   CustomCardImg,
   CustomCardBody,
   ContentsHeaderContainer,
+  ContentsSubHeaderContainer,
   CategoryHeader,
   CardContent,
   CardTitle,

@@ -27,6 +27,7 @@ import {
   LastItem,
 } from '../styled/desktop';
 
+
 const AllContentsBrandCardList = () => {
   const { theme } = useContext(ColorContext);
   const { promotions, setItemSize, loading } = useContext(PromotionContext);

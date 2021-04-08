@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 
 import { useWindowWidth } from '@react-hook/window-size';
 
@@ -20,19 +19,15 @@ const Contents = (props) => {
   const { setSelectedContentsId } = useContext(PromotionContext);
 
   const {
-    selectedCategory,
-    selectedSubCategory,
     menuArr,
     categories,
+    setSelectedCategory,
+    setSelectedSubCategory,
   } = useContext(MenuContext);
 
   const [loading, setLoading] = useState(true);
   const [categoryName, setCategoryName] = useState();
   const [contentsInfo, setContentsInfo] = useState();
-
-  if (selectedCategory === 0 && selectedSubCategory === 0) {
-    return <Redirect to="/" />;
-  }
 
   useEffect(() => {
     const { categoryName, contentsInfo } = getSelectedContentsHeaderInfo(
@@ -42,9 +37,11 @@ const Contents = (props) => {
     );
     setCategoryName(categoryName);
     setContentsInfo(contentsInfo);
+    setSelectedCategory(contentsInfo.CategoryId);
+    setSelectedSubCategory(contentsInfo.id);
     setSelectedContentsId(contentsInfo.id);
     setLoading(false);
-  }, [match]);
+  }, [match, menuArr, categories]);
 
   return (
     !loading && (

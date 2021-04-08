@@ -2,7 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 
-import { ContentsHeaderContainer, CategoryHeader } from '../styled/desktop';
+import {
+  ContentsHeaderContainer,
+  ContentsSubHeaderContainer,
+  CategoryHeader,
+} from '../styled/desktop';
+import KakaoShareButton from '../Share/KakaoShareButton';
 
 const BrandHeader = styled.div(
   tw`md:(text-26) font-normal text-20`,
@@ -18,7 +23,10 @@ const AllContentsHeader = (props) => {
     <ContentsHeaderContainer>
       <>
         <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
-        <BrandHeader>{contentsInfo?.name}</BrandHeader>
+        <ContentsSubHeaderContainer>
+          <BrandHeader>{contentsInfo?.name}</BrandHeader>
+          <KakaoShareButton categoryName={categoryName} />
+        </ContentsSubHeaderContainer>
       </>
     </ContentsHeaderContainer>
   );
