@@ -53,7 +53,7 @@ const getBrandPromotions = async (contentId, page, size) => {
 const getSearchBrand = async (name) => {
   try {
     const result = await client.get(
-      `${baseApiURL}/api/brands/search?name=${name}`,
+      `${baseApiURL}/api/search?name=${name}`,
     );
     return result.data;
   } catch (e) {

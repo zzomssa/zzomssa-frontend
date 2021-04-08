@@ -32,9 +32,16 @@ module.exports = {
         34: '34px',
         36: '36px',
       },
+      width: {
+        '23px': '23px',
+        '25px': '25px',
+        '65px': '65px',
+      },
       height: {
         '2px': '2px',
+        '23px': '23px',
         '25px': '25px',
+        '27px': '27px',
         '35px': '35px',
         '39px': '39px',
         '40px': '40px',

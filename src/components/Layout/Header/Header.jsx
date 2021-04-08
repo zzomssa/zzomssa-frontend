@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Link } from 'react-router-dom';
 
-import ColorContext from '../../../context/ColorContext';
 import MenuContext from '../../../context/MenuContext';
 import LoginContext from '../../../context/LoginContext';
 
@@ -14,10 +13,9 @@ import {
   Logo,
   DesktopHeaderTools,
   MobileHeaderTools,
-  Moon,
-  Sun,
 } from '../../../constants/headerItem';
 import MobileToggle from './MobileToggle';
+import DarkModeToggle from './DarkModeToggle';
 
 const HeaderWrapper = styled.div(tw`block fixed w-full z-50`);
 const HeaderContainer = styled.div(
@@ -61,16 +59,15 @@ const Header = () => {
   const [display, setDisplay] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const { theme, setTheme } = useContext(ColorContext);
-  const { setSelectedCategory, setSelectedSubCategory } = useContext(MenuContext);
+  const { setSelectedCategory, setSelectedSubCategory } = useContext(
+    MenuContext,
+  );
   const { isLogged } = useContext(LoginContext);
 
   const hadleDisplay = () => {
     setDisplay(!display);
   };
   const handleSearch = () => setIsSearchOpen(!isSearchOpen);
-  const handleTheme = () =>
-    theme === 'light' ? setTheme('dark') : setTheme('light');
 
   return (
     <>
@@ -108,12 +105,7 @@ const Header = () => {
                 <ToolImageContainer key="Heart" src={MobileHeaderTools.Heart} />
               </StyledLink>
             </MobileToolbarContainer>
-
-            {theme === 'light' ? (
-              <ToolImageContainer src={Moon} onClick={handleTheme} />
-            ) : (
-              <ToolImageContainer src={Sun} onClick={handleTheme} />
-            )}
+            <DarkModeToggle />
           </ToolBar>
         </HeaderContainer>
       </HeaderWrapper>
