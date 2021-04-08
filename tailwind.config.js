@@ -65,6 +65,7 @@ module.exports = {
       },
       boxShadow: {
         card: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        toggle: '0px 0px 2px 1.5px rgba(0, 0, 0, 0.25)'
       },
     },
   },

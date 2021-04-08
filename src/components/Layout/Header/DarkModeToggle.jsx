@@ -15,14 +15,14 @@ const ToggleContainer = styled.div(
 );
 
 const ToggleButton = styled.div(
-  tw`absolute flex items-center justify-center w-23px h-23px duration-300 rounded-full`,
+  tw`absolute flex items-center justify-center w-23px h-23px duration-300 rounded-full shadow-toggle`,
   css`
     background-color: ${(props) => (props.selected ? '#ffea00' : '#000000')};
     left: ${(props) => (props.selected ? '8px' : '36px')};
   `,
 );
 
-const ToggleImage = styled.img(tw`clickable w-3.5 h-3.5`);
+const ToggleImage = styled.img(tw`clickable w-full h-3.5`);
 
 const DarkModeToggle = () => {
   const { theme, setTheme } = useContext(ColorContext);
