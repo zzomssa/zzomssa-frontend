@@ -5,8 +5,7 @@ import MenuContext from '../../../context/MenuContext';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import LoadingTools from '../../../constants/loadingItem';
-
-import KakaoShareButton from '../Share/KakaoShareButton';
+import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
 
 import {
   replaceAll,
@@ -46,7 +45,6 @@ const AllContentsBrandCardList = () => {
   return (
     <>
       <CardListContainer>
-        <KakaoShareButton />
         {promotions?.data?.map((promotion) => {
           const {
             id,
@@ -71,7 +69,9 @@ const AllContentsBrandCardList = () => {
               />
               <CustomCardBody>
                 <CardContent>
-                  <CardTitle>{refinedTitle}</CardTitle>
+                  <CardTitle>
+                    {UNTITLED === refinedTitle ? UNTITLED_PHRASE : refinedTitle}
+                  </CardTitle>
                   <CardText>{refinedDesc}</CardText>
                   <CardDuration>{duration}</CardDuration>
                 </CardContent>

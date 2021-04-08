@@ -14,6 +14,8 @@ import {
   CardBrandInfo,
 } from '../styled/mobile';
 
+import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
+
 const SearchContentsMobileCardList = () => {
   const { promotions } = useContext(PromotionContext);
   const { menuArr } = useContext(MenuContext);
@@ -31,7 +33,9 @@ const SearchContentsMobileCardList = () => {
             />
             <CustomCardBody>
               <CardContent>
-                <CardTitle>{title}</CardTitle>
+                <CardTitle>
+                  {UNTITLED === title ? UNTITLED_PHRASE : title}
+                </CardTitle>
                 <CardDuration>{description}</CardDuration>
               </CardContent>
               <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>

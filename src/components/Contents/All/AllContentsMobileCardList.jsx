@@ -5,6 +5,7 @@ import MenuContext from '../../../context/MenuContext';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import LoadingTools from '../../../constants/loadingItem';
+import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
 
 import { getSelectedBrandInfo } from '../../../lib/Util';
 import {
@@ -50,7 +51,9 @@ const AllContentsMobileCardList = () => {
               />
               <CustomCardBody>
                 <CardContent>
-                  <CardTitle>{title}</CardTitle>
+                  <CardTitle>
+                    {UNTITLED === title ? UNTITLED_PHRASE : title}
+                  </CardTitle>
                   <CardDuration>{description}</CardDuration>
                 </CardContent>
                 <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>

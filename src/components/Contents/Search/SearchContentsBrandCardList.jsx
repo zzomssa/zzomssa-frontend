@@ -8,6 +8,8 @@ import {
   checkDuration,
 } from '../../../lib/Util';
 
+import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
+
 import {
   CardListContainer,
   CustomCard,
@@ -49,7 +51,9 @@ const SearchContentsBrandCardList = () => {
             />
             <CustomCardBody>
               <CardContent>
-                <CardTitle>{refinedTitle}</CardTitle>
+                <CardTitle>
+                  {UNTITLED === refinedTitle ? UNTITLED_PHRASE : refinedTitle}
+                </CardTitle>
                 <CardText>{refinedDesc}</CardText>
                 <CardDuration>{duration}</CardDuration>
               </CardContent>

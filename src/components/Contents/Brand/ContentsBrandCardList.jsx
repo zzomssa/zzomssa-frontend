@@ -3,12 +3,11 @@ import PromotionContext from '../../../context/PromotionContext';
 import ColorContext from '../../../context/ColorContext';
 
 import LoadingTools from '../../../constants/loadingItem';
+import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
+
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
-import {
-  replaceAll,
-  checkDuration,
-} from '../../../lib/Util';
+import { replaceAll, checkDuration } from '../../../lib/Util';
 
 import {
   CardListContainer,
@@ -65,7 +64,9 @@ const ContentsBrandCardList = (props) => {
               />
               <CustomCardBody>
                 <CardContent>
-                  <CardTitle>{refinedTitle}</CardTitle>
+                  <CardTitle>
+                    {UNTITLED === refinedTitle ? UNTITLED_PHRASE : refinedTitle}
+                  </CardTitle>
                   <CardText>{refinedDesc}</CardText>
                   <CardDuration>{duration}</CardDuration>
                 </CardContent>

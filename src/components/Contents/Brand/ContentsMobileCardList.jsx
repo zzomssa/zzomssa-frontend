@@ -3,6 +3,8 @@ import PromotionContext from '../../../context/PromotionContext';
 import ColorContext from '../../../context/ColorContext';
 
 import LoadingTools from '../../../constants/loadingItem';
+import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
+
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import {
@@ -47,7 +49,9 @@ const ContentsMobileCardList = (props) => {
               />
               <CustomCardBody>
                 <CardContent>
-                  <CardTitle>{title}</CardTitle>
+                  <CardTitle>
+                    {UNTITLED === title ? UNTITLED_PHRASE : title}
+                  </CardTitle>
                   <CardDuration>{description}</CardDuration>
                 </CardContent>
                 <CardBrandInfo>{brandName}</CardBrandInfo>

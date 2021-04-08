@@ -12,19 +12,14 @@ import { kakaoShareLogo } from '../../../constants/shareItem';
 const CustomButton = styled(Button)(tw`outline-none border-0 m-0 p-0 clickable`);
 const KakaoImg = styled.img(tw`w-6 h-6`);
 const KakaoShareButton = (props) => {
-  // useEffect(() => {
-  //   createKakaoButton();
-  // }, []);
 
   const createKakaoButton = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
-      console.log(process.env.REACT_APP_KAKAO_KEY);
       if (!kakao.isInitialized()) {
         kakao.init(process.env.REACT_APP_KAKAO_KEY);
       }
       kakao.Link.createDefaultButton({
-        // Render 부분 id=kakao-link-btn 을 찾아 그부분에 렌더링을 합니다
         container: '#kakao-link-btn',
         objectType: 'feed',
         content: {

@@ -6,12 +6,11 @@ import PromotionContext from '../../../context/PromotionContext';
 import MenuContext from '../../../context/MenuContext';
 
 import { DESK_MIN_WIDTH } from '../../../constants/responsiveItem';
+import { SEARCH_CATEGORY_NAME } from '../../../constants/contentsItem';
 
 import SearchContentsHeader from './SearchContentsHeader';
 import SearchContentsBrandCardList from './SearchContentsBrandCardList';
 import SearchContentsMobileCardList from './SearchContentsMobileCardList';
-
-const categoryName = 'SEARCH';
 
 const SearchContents = () => {
   const { setSelectedContentsId } = useContext(PromotionContext);
@@ -23,12 +22,12 @@ const SearchContents = () => {
   }
 
   useEffect(() => {
-    setSelectedContentsId('SEARCH');
+    setSelectedContentsId(SEARCH_CATEGORY_NAME);
   }, []);
 
   return (
     <>
-      <SearchContentsHeader categoryName={categoryName} />
+      <SearchContentsHeader categoryName={SEARCH_CATEGORY_NAME} />
       {windowWitdh >= DESK_MIN_WIDTH ? (
         <SearchContentsBrandCardList />
       ) : (
