@@ -23,7 +23,7 @@ import {
 
 const AllContentsMobileCardList = () => {
   const { theme } = useContext(ColorContext);
-  const { promotions, setItemSize, loading } = useContext(PromotionContext);
+  const { promotions, itemSize, setItemSize, loading } = useContext(PromotionContext);
   const { menuArr } = useContext(MenuContext);
   const [target, setTarget] = useState(null);
 
@@ -31,7 +31,10 @@ const AllContentsMobileCardList = () => {
     target,
     onIntersect: ([{ isIntersecting }]) => {
       if (isIntersecting) {
-        if (loading === false) setItemSize((prevSize) => prevSize + 20);
+        if (loading === false) {
+          if (!(itemSize > 40 && promotions?.data?.length === 0))
+            setItemSize((prevSize) => prevSize + 20);
+        }
       }
     },
   });
