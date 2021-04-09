@@ -41,7 +41,8 @@ const AllContentsBrandCardList = () => {
       if (isIntersecting) {
         if (loading === false) {
           if (!(itemSize > 40 && promotions?.data?.length === 0))
-            setItemSize((prevSize) => prevSize + 20);
+            if (!(Math.abs(promotions?.data?.length - itemSize) > 20)) 
+              setItemSize((prevSize) => prevSize + 20);
         }
       }
     },
