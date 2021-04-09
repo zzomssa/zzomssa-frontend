@@ -40,8 +40,8 @@ const AllContentsMobileCardList = () => {
     <>
       <CardListContainer>
         {promotions?.data?.map((promotion) => {
-          const { id, description, image, title, url, BrandId } = promotion;
-          const selectedBrandInfo = getSelectedBrandInfo(menuArr, BrandId);
+          const { id, description, image, title, url, brandId } = promotion;
+          const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
           return (
             <CustomCard key={`all_mo_${title}_${id}`}>
               <CustomCardImg

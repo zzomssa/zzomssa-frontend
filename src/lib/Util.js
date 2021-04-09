@@ -5,7 +5,7 @@ const makeMenu = (categories, brands) => {
   let menu = {};
   categories.map((category) => {
     const brandArray = brands.filter(
-      (brand) => brand.CategoryId === category.id,
+      (brand) => brand.categoryId === category.id,
     );
     menu = {
       ...menu,

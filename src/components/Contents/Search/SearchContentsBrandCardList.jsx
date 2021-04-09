@@ -36,12 +36,12 @@ const SearchContentsBrandCardList = () => {
           image,
           title,
           url,
-          BrandId,
+          brandId,
         } = promotion;
         const duration = checkDuration(startAt, endAt);
         const refinedTitle = replaceAll(title, '\r\n', ' ');
         const refinedDesc = replaceAll(description, '\r\n', ' ');
-        const selectedBrandInfo = getSelectedBrandInfo(menuArr, BrandId);
+        const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
         return (
           <CustomCard key={`search_${title}_${id}`}>
             <CustomCardImg
