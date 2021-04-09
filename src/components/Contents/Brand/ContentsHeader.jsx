@@ -20,13 +20,15 @@ const ContentsHeader = (props) => {
 
   return (
     <ContentsHeaderContainer>
-      <>
-        <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
-        <ContentsSubHeaderContainer>
-          <BrandHeader>{contentsInfo?.name}</BrandHeader>
-          <KakaoShareButton brandName={contentsInfo?.name} />
-        </ContentsSubHeaderContainer>
-      </>
+      {categoryName && contentsInfo?.name && (
+        <>
+          <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
+          <ContentsSubHeaderContainer>
+            <BrandHeader>{contentsInfo?.name}</BrandHeader>
+            <KakaoShareButton brandName={contentsInfo?.name} />
+          </ContentsSubHeaderContainer>
+        </>
+      )}
     </ContentsHeaderContainer>
   );
 };
