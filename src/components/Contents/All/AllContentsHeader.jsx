@@ -25,7 +25,7 @@ const AllContentsHeader = (props) => {
         <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
         <ContentsSubHeaderContainer>
           <BrandHeader>{contentsInfo?.name}</BrandHeader>
-          <KakaoShareButton categoryName={categoryName} />
+          <KakaoShareButton brandName={contentsInfo?.name} />
         </ContentsSubHeaderContainer>
       </>
     </ContentsHeaderContainer>
