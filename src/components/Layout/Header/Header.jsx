@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Link } from 'react-router-dom';
+import { useWindowWidth } from '@react-hook/window-size';
 
 import MenuContext from '../../../context/MenuContext';
 import LoginContext from '../../../context/LoginContext';
@@ -14,6 +15,8 @@ import {
   DesktopHeaderTools,
   MobileHeaderTools,
 } from '../../../constants/headerItem';
+import { DESK_MIN_WIDTH } from '../../../constants/responsiveItem';
+
 import MobileToggle from './MobileToggle';
 import DarkModeToggle from './DarkModeToggle';
 
@@ -36,7 +39,7 @@ const LogoContainer = styled.img(
   tw`items-center clickable w-8 h-8 md:(relative left-auto) absolute left-2/4 transform -translate-x-2/4`,
 );
 
-const ToolImageContainer = styled(ImageContainer)(tw`md:(px-5) pr-3 z-10`);
+const ToolImageContainer = styled(ImageContainer)(tw`md:(px-5) px-2 z-10`);
 const ToolBar = styled.div(tw`flex items-center justify-end`);
 
 const SearchBoxContainer = styled.div(
@@ -63,6 +66,7 @@ const Header = () => {
     MenuContext,
   );
   const { isLogged } = useContext(LoginContext);
+  const windowWitdh = useWindowWidth();
 
   const hadleDisplay = () => {
     setDisplay(!display);
@@ -105,7 +109,7 @@ const Header = () => {
                 <ToolImageContainer key="Heart" src={MobileHeaderTools.Heart} />
               </StyledLink>
             </MobileToolbarContainer>
-            <DarkModeToggle />
+            {windowWitdh >= DESK_MIN_WIDTH && <DarkModeToggle />}
           </ToolBar>
         </HeaderContainer>
       </HeaderWrapper>

@@ -45,6 +45,8 @@ const MobileHR = styled.hr(
   `,
 );
 
+const MobileUserToolContainer = styled.div(tw`flex justify-between items-center mt-6`);
+
 const MobileUserContainer = styled.div(
   tw`m-6 text-16`,
   css`
@@ -55,7 +57,7 @@ const MobileUserContent = styled.div(
   tw`my-2 whitespace-normal`
 );
 const MobileLogoutButton = styled(Button)(
-  tw`mt-2 mb-4 h-25px border-none rounded-2xl float-right outline-none clickable`,
+  tw`h-29px border-none rounded-2xl outline-none clickable`,
   css`
     color: ${(props) => props.theme.button_text};
     background-color: ${(props) => props.theme.button_background};
@@ -125,6 +127,7 @@ export {
   MobileToggleContainer,
   ToggleImageContainer,
   MobileSidebar,
+  MobileUserToolContainer,
   MobileHeaderContainer,
   MobileLogoContainer,
   MobileCloseContainer,

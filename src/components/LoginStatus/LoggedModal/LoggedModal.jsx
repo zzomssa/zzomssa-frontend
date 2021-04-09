@@ -10,11 +10,11 @@ const IntroContent = '쫌싸에 오신 것을 환영합니다.';
 const LogoutContent = '로그아웃';
 
 const ModalBackground = styled.div(
-  tw` fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 z-20 outline-none`,
+  tw`fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 z-20 outline-none`,
 );
 
 const ModalContent = styled.div(
-  tw` left-2/4 transform -translate-x-2/4 mt-40 py-6 bg-white absolute z-30 outline-none rounded-md text-xl font-bold text-black
+  tw` left-2/4 transform -translate-x-2/4 mt-40 py-6 bg-white fixed z-30 outline-none rounded-md text-xl font-bold text-black
   sm:mt-40 md:(px-6)`
 );
 

@@ -16,6 +16,7 @@ import {
   MobileLogoContainer,
   MobileCloseContainer,
   MobileHR,
+  MobileUserToolContainer,
   MobileUserContainer,
   MobileUserContent,
   MobileLogoutButton,
@@ -24,6 +25,8 @@ import {
   MobileStyledPanelContent,
   StyledLink,
 } from './styled/mobile';
+
+import DarkModeToggle from './DarkModeToggle';
 
 const NonUserContent = '비회원님,';
 const IntroContent = '쫌.싸에 오신 걸 환영합니다.';
@@ -83,23 +86,29 @@ const MobileToggle = (props) => {
                 <>
                   <MobileUserContent>{profileNickName}님,</MobileUserContent>
                   <MobileUserContent>{IntroContent}</MobileUserContent>
-                  <MobileLogoutButton
-                    onClick={() => {
-                      setIsLogged(false);
-                      setProfileNickName();
-                      setProfileId();
-                    }}
-                  >
-                    {LogoutContent}
-                  </MobileLogoutButton>
+                  <MobileUserToolContainer>
+                    <DarkModeToggle />
+                    <MobileLogoutButton
+                      onClick={() => {
+                        setIsLogged(false);
+                        setProfileNickName();
+                        setProfileId();
+                      }}
+                    >
+                      {LogoutContent}
+                    </MobileLogoutButton>
+                  </MobileUserToolContainer>
                 </>
               ) : (
                 <>
                   <MobileUserContent>{NonUserContent}</MobileUserContent>
                   <MobileUserContent>{IntroContent}</MobileUserContent>
-                  <MobileLogoutButton onClick={displayHandler}>
-                    {LoginContent}
-                  </MobileLogoutButton>
+                  <MobileUserToolContainer>
+                    <DarkModeToggle />
+                    <MobileLogoutButton onClick={displayHandler}>
+                      {LoginContent}
+                    </MobileLogoutButton>
+                  </MobileUserToolContainer>
                 </>
               )}
             </MobileUserContainer>
