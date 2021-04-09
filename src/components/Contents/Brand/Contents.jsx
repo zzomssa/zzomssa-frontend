@@ -37,7 +37,7 @@ const Contents = (props) => {
     );
     setCategoryName(categoryName);
     setContentsInfo(contentsInfo);
-    setSelectedCategory(contentsInfo.CategoryId);
+    setSelectedCategory(contentsInfo.categoryId);
     setSelectedSubCategory(contentsInfo.id);
     setSelectedContentsId(contentsInfo.id);
     setLoading(false);

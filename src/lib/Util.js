@@ -40,7 +40,7 @@ const getSelectedContentsHeaderInfo = (match, menuArr, categories) => {
 
   if (_selectedContentsInfo.length > 0) {
     const [contentsInfo] = _selectedContentsInfo;
-    const categoryName = getCategoryName(categories, contentsInfo.CategoryId);
+    const categoryName = getCategoryName(categories, contentsInfo.categoryId);
     return { categoryName, contentsInfo };
   }
   return { categoryName: '', contentsInfo: '' };
