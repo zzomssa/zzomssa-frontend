@@ -39,6 +39,7 @@ const createKakaoButton = (brandName = null) => {
         description: '#리액트 #카카오 #공유버튼',
         imageUrl: 'IMAGE_URL', // i.e. process.env.FETCH_URL + '/logo.png'
         link: {
+          mobileWebUrl: webUrl,
           webUrl,
         },
       },
@@ -46,6 +47,7 @@ const createKakaoButton = (brandName = null) => {
         {
           title: '쫌싸로 보러가기!',
           link: {
+            mobileWebUrl: webUrl,
             webUrl,
           },
         },
