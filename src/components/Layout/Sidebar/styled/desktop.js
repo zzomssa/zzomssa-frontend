@@ -6,7 +6,7 @@ import { Collapse } from 'antd';
 const { Panel } = Collapse;
 
 const SidebarContainer = styled.div(
-  tw`hidden md:(h-screen block sticky top-0 w-1/4 pt-10 z-10 border-solid border-r float-left)`,
+  tw`hidden truncate md:(h-screen block sticky top-20 w-1/4 pt-10 z-10 border-solid border-r float-left)`,
   css`
     border-color: ${(props) => props.theme.vertical_border};
   `,

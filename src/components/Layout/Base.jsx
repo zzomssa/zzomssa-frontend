@@ -7,7 +7,7 @@ import Banner from './Banner';
 import Sidebar from './Sidebar';
 import FavoriteBar from './FavoriteBar';
 
-const Wrapper = styled.div(tw`relative w-full truncate`);
+const Wrapper = styled.div(tw`relative w-full`);
 const ContentWrapper = styled.div(tw`max-w-screen-2xl mx-auto`);
 const ContentSection = styled.div(tw``, css``);
 
