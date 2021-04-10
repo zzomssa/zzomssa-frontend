@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, lazy, Suspense } from 'react';
 
 import { useWindowWidth } from '@react-hook/window-size';
 
@@ -10,8 +10,9 @@ import { getSelectedContentsHeaderInfo } from '../../../lib/Util';
 import { DESK_MIN_WIDTH } from '../../../constants/responsiveItem';
 
 import ContentsHeader from './ContentsHeader';
-import ContentsBrandCardList from './ContentsBrandCardList';
-import ContentsMobileCardList from './ContentsMobileCardList';
+
+const ContentsBrandCardList = lazy(() => import('./ContentsBrandCardList'));
+const ContentsMobileCardList = lazy(() => import('./ContentsMobileCardList'));
 
 const Contents = (props) => {
   const { match } = props;
@@ -51,9 +52,13 @@ const Contents = (props) => {
           contentsInfo={contentsInfo}
         />
         {windowWitdh >= DESK_MIN_WIDTH ? (
-          <ContentsBrandCardList brandName={contentsInfo.name} />
+          <Suspense fallback={<> </>}>
+            <ContentsBrandCardList brandName={contentsInfo.name} />
+          </Suspense>
         ) : (
-          <ContentsMobileCardList brandName={contentsInfo.name} />
+          <Suspense fallback={<> </>}>
+            <ContentsMobileCardList brandName={contentsInfo.name} />
+          </Suspense>
         )}
       </>
     )

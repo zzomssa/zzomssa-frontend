@@ -1,18 +1,24 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, lazy, Suspense } from 'react';
 
 import { useWindowWidth } from '@react-hook/window-size';
+
 import PromotionContext from '../../../context/PromotionContext';
+import MenuContext from '../../../context/MenuContext';
 
 import { DESK_MIN_WIDTH } from '../../../constants/responsiveItem';
 import {
   HOME_CATEGORY_NAME,
   HOME_CATEGORY_INFO,
 } from '../../../constants/contentsItem';
-import MenuContext from '../../../context/MenuContext';
 
 import AllContentsHeader from './AllContentsHeader';
-import AllContentsBrandCardList from './AllContentsBrandCardList';
-import AllContentsMobileCardList from './AllContentsMobileCardList';
+
+const AllContentsBrandCardList = lazy(() =>
+  import('./AllContentsBrandCardList'),
+);
+const AllContentsMobileCardList = lazy(() =>
+  import('./AllContentsMobileCardList'),
+);
 
 const AllContents = () => {
   const { setSelectedContentsId } = useContext(PromotionContext);
@@ -35,9 +41,13 @@ const AllContents = () => {
         contentsInfo={HOME_CATEGORY_INFO}
       />
       {windowWitdh >= DESK_MIN_WIDTH ? (
-        <AllContentsBrandCardList />
+        <Suspense fallback={<> </>}>
+          <AllContentsBrandCardList />
+        </Suspense>
       ) : (
-        <AllContentsMobileCardList />
+        <Suspense fallback={<> </>}>
+          <AllContentsMobileCardList />
+        </Suspense>
       )}
     </>
   );

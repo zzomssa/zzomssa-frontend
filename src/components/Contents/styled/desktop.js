@@ -27,7 +27,7 @@ const CategoryHeader = styled.div(
   `,
 );
 
-const CustomCardImg = styled(CardImg)(tw`w-3/5 h-full clickable`, css``);
+const CustomCardImg = styled(CardImg)(tw`w-3/5 h-full clickable`);
 
 const CustomCardBody = styled(CardBody)(
   tw`w-2/5`,
@@ -80,20 +80,6 @@ const LoadingIcon = styled.img(
 );
 
 const LastItem = styled.div(tw`absolute left-2/4 transform -translate-x-2/4`);
-
-// const StyledLink = styled(Link)(
-//   tw``,
-//   css`
-//     &:focus,
-//     &:visited,
-//     &:link,
-//     &:active {
-//       text-decoration: none;
-//       color: ${(props) =>
-//         props.selected ? props.theme.contrast_text : 'inherit'};
-//     }
-//   `,
-// );
 
 export {
   CardListContainer,

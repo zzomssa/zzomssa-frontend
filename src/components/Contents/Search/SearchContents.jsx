@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, lazy, Suspense } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useWindowWidth } from '@react-hook/window-size';
 
@@ -9,8 +9,13 @@ import { DESK_MIN_WIDTH } from '../../../constants/responsiveItem';
 import { SEARCH_CATEGORY_NAME } from '../../../constants/contentsItem';
 
 import SearchContentsHeader from './SearchContentsHeader';
-import SearchContentsBrandCardList from './SearchContentsBrandCardList';
-import SearchContentsMobileCardList from './SearchContentsMobileCardList';
+
+const SearchContentsBrandCardList = lazy(() =>
+  import('./SearchContentsBrandCardList'),
+);
+const SearchContentsMobileCardList = lazy(() =>
+  import('./SearchContentsMobileCardList'),
+);
 
 const SearchContents = () => {
   const { setSelectedContentsId } = useContext(PromotionContext);
@@ -29,9 +34,13 @@ const SearchContents = () => {
     <>
       <SearchContentsHeader categoryName={SEARCH_CATEGORY_NAME} />
       {windowWitdh >= DESK_MIN_WIDTH ? (
-        <SearchContentsBrandCardList />
+        <Suspense fallback={<> </>}>
+          <SearchContentsBrandCardList />
+        </Suspense>
       ) : (
-        <SearchContentsMobileCardList />
+        <Suspense fallback={<> </>}>
+          <SearchContentsMobileCardList />
+        </Suspense>
       )}
     </>
   );
