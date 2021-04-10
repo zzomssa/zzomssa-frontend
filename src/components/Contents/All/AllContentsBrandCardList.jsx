@@ -11,6 +11,7 @@ import {
   replaceAll,
   getSelectedBrandInfo,
   checkDuration,
+  isNeedMoreFetch
 } from '../../../lib/Util';
 
 import {
@@ -38,12 +39,8 @@ const AllContentsBrandCardList = () => {
   useInfiniteScroll({
     target,
     onIntersect: ([{ isIntersecting }]) => {
-      if (isIntersecting) {
-        if (loading === false) {
-          if (!(itemSize > 40 && promotions?.data?.length === 0))
-            if (!(Math.abs(promotions?.data?.length - itemSize) > 20)) 
-              setItemSize((prevSize) => prevSize + 20);
-        }
+      if (isIntersecting && isNeedMoreFetch(loading, itemSize, promotions)) {
+        setItemSize((prevSize) => prevSize + 20);
       }
     },
   });

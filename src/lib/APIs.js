@@ -34,7 +34,9 @@ const postLoginInfo = async (profileId, profileNickName) => {
 
 const getAllBrandPromotions = async (page, size) => {
   try {
-    return await client.get(`${baseApiURL}/api/brands/promotions?page=${page}&size=${size}`);
+    return await client.get(
+      `${baseApiURL}/api/brands/promotions?page=${page}&size=${size}`,
+    );
   } catch (e) {
     return null;
   }
@@ -52,10 +54,7 @@ const getBrandPromotions = async (contentId, page, size) => {
 
 const getSearchBrand = async (name) => {
   try {
-    const result = await client.get(
-      `${baseApiURL}/api/search?name=${name}`,
-    );
-    return result.data;
+    return await client.get(`${baseApiURL}/api/search?name=${name}`);
   } catch (e) {
     return null;
   }

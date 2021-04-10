@@ -55,6 +55,15 @@ const checkDuration = (startAt, endAt) =>
 const descLengthOverCut = (desc) =>
   desc?.length > 35 ? `${desc.substr(0, 35)} ...` : desc;
 
+const isNeedMoreFetch = (loading, itemSize, promotions) => {
+  if (
+    loading === false &&
+    !(itemSize > 40 && promotions?.data?.length === 0) &&
+    !(Math.abs(promotions?.data?.length - itemSize) > 20)
+  )
+    return true;
+  return false;
+};
 export {
   makeMenu,
   getCategoryName,
@@ -63,4 +72,5 @@ export {
   replaceAll,
   checkDuration,
   descLengthOverCut,
+  isNeedMoreFetch
 };

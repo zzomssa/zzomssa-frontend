@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { InputGroup, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import tw from 'twin.macro';
 import { iconSearch, iconX } from '../../constants/searchItem';
@@ -49,29 +49,38 @@ const ImageContainer = styled.img(tw`mx-4 clickable w-5 h-5`);
 
 const Search = (props) => {
   const { handleSearch } = props;
-  const { searchTerm, setSearchTerm } = useContext(PromotionContext);
+  const { setSearchTarget } = useContext(PromotionContext);
   const { setSelectedCategory, setSelectedSubCategory } = useContext(
     MenuContext,
   );
+  const history = useHistory();
+  const [searchTerm, setSearchTerm] = useState('');
+
   const handleInput = (e) => setSearchTerm(e.target.value);
+  const handleClick = () => {
+    setSelectedCategory(-1);
+    setSelectedSubCategory(-1);
+    setSearchTarget(searchTerm);
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleClick();
+      history.push('/search');
+    }
+  };
 
   return (
     <>
       <SearchContainer>
         <SearchBar>
           <StyledLink to="/search">
-            <ImageContainer
-              src={iconSearch}
-              onClick={() => {
-                setSelectedCategory(-1);
-                setSelectedSubCategory(-1);
-              }}
-            />
+            <ImageContainer src={iconSearch} onClick={handleClick} />
           </StyledLink>
           <StyledInput
             placeholder={INPUT_PLACEHOLDER}
             value={searchTerm}
             onChange={handleInput}
+            onKeyPress={handleKeyPress}
           />
           <ImageContainer src={iconX} onClick={() => setSearchTerm('')} />
         </SearchBar>

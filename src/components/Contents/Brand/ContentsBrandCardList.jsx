@@ -7,7 +7,7 @@ import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
 
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
-import { replaceAll, checkDuration } from '../../../lib/Util';
+import { replaceAll, checkDuration, isNeedMoreFetch } from '../../../lib/Util';
 
 import {
   CardListContainer,
@@ -34,12 +34,8 @@ const ContentsBrandCardList = (props) => {
   useInfiniteScroll({
     target,
     onIntersect: ([{ isIntersecting }]) => {
-      if (isIntersecting) {
-        if (loading === false) {
-          if (!(itemSize > 40 && promotions?.data?.length === 0))
-            if (!(Math.abs(promotions?.data?.length - itemSize) > 20)) 
-              setItemSize((prevSize) => prevSize + 20);
-        }
+      if (isIntersecting && isNeedMoreFetch(loading, itemSize, promotions)) {
+        setItemSize((prevSize) => prevSize + 20);
       }
     },
   });

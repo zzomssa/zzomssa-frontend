@@ -8,7 +8,6 @@ const initialItemSize = 20;
 const PromotionProvider = ({ children }) => {
   const [promotions, setPromotions] = useState();
   const [selectedContentsId, setSelectedContentsId] = useState();
-  const [searchTerm, setSearchTerm] = useState('');
   const [searchTarget, setSearchTarget] = useState('');
   const [itemSize, setItemSize] = useState(initialItemSize);
   const [loading, setLoding] = useState(false);
@@ -16,11 +15,9 @@ const PromotionProvider = ({ children }) => {
   const value = {
     promotions,
     setPromotions,
-    searchTerm,
     searchTarget,
     selectedContentsId,
     setSelectedContentsId,
-    setSearchTerm,
     setSearchTarget,
     itemSize,
     setItemSize,
@@ -36,8 +33,7 @@ const PromotionProvider = ({ children }) => {
         const _promotions = await API.getAllBrandPromotions(page, size);
         setPromotions(_promotions);
       } else if (selectedContentsId === 'SEARCH') {
-        const _promotions = await API.getSearchBrand(searchTerm);
-        setSearchTarget(searchTerm);
+        const _promotions = await API.getSearchBrand(searchTarget);
         setPromotions(_promotions);
       } else if (selectedContentsId) {
         const _promotions = await API.getBrandPromotions(selectedContentsId, page, size);
@@ -45,7 +41,7 @@ const PromotionProvider = ({ children }) => {
       }
     };
     getPromotions();
-  }, [selectedContentsId]);
+  }, [selectedContentsId, searchTarget]);
 
   useEffect(() => {
     const page = 1;
