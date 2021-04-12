@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 // import KaKaoLogin from 'react-kakao-login';
 import { useAlert } from 'react-alert';
-// import { Button } from 'antd';
 
 // import { postLoginInfo } from '../../../lib/APIs';
 import LoginTools from '../../../constants/loginItem';
@@ -15,49 +14,33 @@ const KAKAO_BUTTON = '카카오 계정으로 로그인하기';
 const NONLOGIN_BUTTON = '비회원으로 사이트 이용하기';
 const ALERT_TEXT ='카카오 로그인 기능은 현재 개발 중입니다!'
 const ModalBackground = styled.div(
-  tw` fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 z-50 outline-none`,
+  tw`fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 z-50 outline-none`,
 );
 
 const ModalContent = styled.div(
-  tw` left-2/4 top-1/3 transform -translate-x-2/4 -translate-y-2/4 py-6 fixed bg-white z-100 outline-none rounded-md text-xl font-bold
+  tw`fixed left-2/4 top-1/3 transform -translate-x-2/4 -translate-y-2/4 py-6 bg-white z-100 outline-none rounded-md text-xl font-bold
   md:(px-6)`,
 );
 
 const LoginText = styled.div(
   tw`absolute left-2/4 transform -translate-x-2/4 sm:text-2xl font-medium text-black text-center`,
-  css`
-    @media (min-width: 768) {
-      padding-top: 5%;
-    }
-  `,
 );
 
 const DeleteButton = styled.img(
   tw`block w-5 h-5 float-right clickable mr-5 md:(mr-0)`,
-  css``,
 );
 
 const LoginWrapper = styled.div(
-  tw`mx-4 mt-0`,
-  css`
-    margin-top: 40px;
-  `,
+  tw`mx-4 mt-12`
 );
 
 const Imagewrapper = styled.div(
-  tw` flex text-16 font-bold items-center justify-center w-222px h-50px clickable sm: my-32 `,
+  tw` flex text-14 font-bold items-center justify-center w-222px h-50px clickable rounded-lg md:(text-16)`,
   css`
     margin: 5% auto;
-    border-radius: 10px;
     background-color: ${(props) =>
       props.color === 'true' ? 'black' : '#f9e000'};
     color: ${(props) => (props.color === 'true' ? 'white' : 'black')};
-    @media (min-width: 1024px) {
-      height: 60px;
-    }
-    @media (max-width: 400px) {
-      font-size: 14px;
-    }
   `,
 );
 
@@ -84,7 +67,6 @@ const LoginModal = (props) => {
   // const { setIsLogged, setProfileNickName, setProfileId } = useContext(
   //   LoginContext,
   // );
-  // const alert = useAlert();
 
   return (
     <>
