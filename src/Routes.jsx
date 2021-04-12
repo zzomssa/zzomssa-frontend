@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { withRouter, Switch, Route } from 'react-router-dom';
 
 import Base from './components/Layout';
 import MobileFavoriteBar from './components/MobileFavoriteBar';
@@ -12,7 +12,7 @@ const Routes = () => (
       <Route path="/search" component={SearchContents} exact />
       <Route path="/brand/:subcategory" component={Contents} exact />
       <Route path="/mobile/favorite" component={MobileFavoriteBar} exact />
-      <Redirect to="/" />
+      {/* <Redirect to="/" /> */}
     </Base>
   </Switch>
 );
