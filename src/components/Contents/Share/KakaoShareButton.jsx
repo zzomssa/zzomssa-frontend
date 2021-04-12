@@ -38,7 +38,8 @@ const createKakaoButton = (brandName = null) => {
       content: {
         title: shareTitle,
         description: '쫌싸로 할인 중인 기획전 GET!',
-        imageUrl: ZZOMSSA_INTRO,
+        imageUrl: `https://zzomssa.com${ZZOMSSA_INTRO}`,
+        imageHeight: 200,
         link: {
           mobileWebUrl: webUrl,
           webUrl,
