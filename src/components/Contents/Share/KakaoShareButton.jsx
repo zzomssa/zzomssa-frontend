@@ -9,6 +9,7 @@ import {
   kakaoShareLogo,
   ZZOMSSA_URL,
   ZZOMSSA_NAME,
+  ZZOMSSA_INTRO
 } from '../../../constants/shareItem';
 
 const CustomButton = styled(Button)(
@@ -37,7 +38,7 @@ const createKakaoButton = (brandName = null) => {
       content: {
         title: shareTitle,
         description: '#리액트 #카카오 #공유버튼',
-        imageUrl: 'IMAGE_URL', // i.e. process.env.FETCH_URL + '/logo.png'
+        imageUrl: ZZOMSSA_INTRO,
         link: {
           mobileWebUrl: webUrl,
           webUrl,
