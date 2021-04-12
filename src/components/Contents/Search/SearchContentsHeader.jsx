@@ -14,14 +14,14 @@ const SearchTermContent = styled.div(
 );
 
 const SearchContentsHeader = (props) => {
-  const { searchTarget } = useContext(PromotionContext);
+  const { searchTarget, promotions } = useContext(PromotionContext);
   const { categoryName } = props;
 
   return (
     <ContentsHeaderContainer>
       <>
         <CategoryHeader>{categoryName?.toUpperCase()}</CategoryHeader>
-        <SearchTermContent>{`"${searchTarget}"에 대한 검색결과 입니다.`}</SearchTermContent>
+        <SearchTermContent>{promotions?.data?.length > 0 ? `"${searchTarget}"에 대한 검색결과 입니다.` : `"${searchTarget}"에 대한 검색결과가 없습니다.`}</SearchTermContent>
       </>
     </ContentsHeaderContainer>
   );

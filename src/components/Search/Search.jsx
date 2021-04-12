@@ -58,14 +58,16 @@ const Search = (props) => {
 
   const handleInput = (e) => setSearchTerm(e.target.value);
   const handleClick = () => {
-    setSelectedCategory(-1);
-    setSelectedSubCategory(-1);
-    setSearchTarget(searchTerm);
+    if (searchTerm?.length > 1) {
+      setSelectedCategory(-1);
+      setSelectedSubCategory(-1);
+      setSearchTarget(searchTerm);
+      history.push('/search');
+    }
   };
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleClick();
-      history.push('/search');
     }
   };
 
