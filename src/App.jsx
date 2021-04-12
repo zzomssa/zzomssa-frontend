@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Analytics from 'react-router-ga';
 
+import AlertTemplate from 'react-alert-template-basic';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import { GlobalStyles } from './style';
 
 import { ColorProvider } from './context/ColorContext';
@@ -11,6 +13,13 @@ import { PromotionProvider } from './context/PromotionContext';
 
 import Routes from './Routes';
 import ScrollToTop from './lib/ScrollToTop';
+
+const options = {
+  position: positions.MIDDLE,
+  timeout: 3000,
+  offset: '-150px',
+  transition: transitions.SCALE,
+};
 
 const AppProvider = ({ contexts, children }) =>
   contexts.reduce(
@@ -29,7 +38,9 @@ const App = () => (
     <BrowserRouter basename="/">
       <ScrollToTop>
         <Analytics id="UA-192829821-1">
-          <Routes />
+          <AlertProvider template={AlertTemplate} {...options}>
+            <Routes />
+          </AlertProvider>
         </Analytics>
       </ScrollToTop>
     </BrowserRouter>

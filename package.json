@@ -10,6 +10,8 @@
     "axios": "^0.21.1",
     "postcss": "^8.2.4",
     "react": "^17.0.1",
+    "react-alert": "^7.0.2",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^17.0.1",
     "react-kakao-login": "^2.0.3",
     "react-responsive-carousel": "^3.2.11",
@@ -39,7 +41,7 @@
       "ecmaFeatures": {
         "jsx": true
       }
-		},
+    },
     "extends": [
       "airbnb",
       "prettier"
@@ -58,7 +60,8 @@
       "import/named": 0,
       "no-shadow": 0,
       "consistent-return": 0,
-      "import/prefer-default-export": 0
+      "import/prefer-default-export": 0,
+      "react/jsx-props-no-spreading": 0
     },
     "env": {
       "browser": true
@@ -78,11 +81,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "prettier": "^2.2.1",
-    "prop-types": "^15.7.2",
     "eslint-config": "^0.3.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.1"
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "prop-types": "^15.7.2"
   }
 }

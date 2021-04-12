@@ -1,24 +1,26 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import KaKaoLogin from 'react-kakao-login';
+// import KaKaoLogin from 'react-kakao-login';
+import { useAlert } from 'react-alert';
+// import { Button } from 'antd';
 
-import { postLoginInfo } from '../../../lib/APIs';
+// import { postLoginInfo } from '../../../lib/APIs';
 import LoginTools from '../../../constants/loginItem';
-import LoginContext from '../../../context/LoginContext';
+// import LoginContext from '../../../context/LoginContext';
 
-const KAKAO_TOKEN = '9030c74246944b49373d6baa1f446d7e';
+// const KAKAO_TOKEN = '9030c74246944b49373d6baa1f446d7e';
 const LOGIN_TEXT = '로그인';
 const KAKAO_BUTTON = '카카오 계정으로 로그인하기';
 const NONLOGIN_BUTTON = '비회원으로 사이트 이용하기';
-
+const ALERT_TEXT ='카카오 로그인 기능은 현재 개발 중입니다!'
 const ModalBackground = styled.div(
   tw` fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 z-50 outline-none`,
 );
 
 const ModalContent = styled.div(
-  tw` left-2/4 transform -translate-x-2/4 py-6 fixed bg-white z-100 outline-none rounded-md text-xl font-bold
-  mt-40 md:(px-6)`,
+  tw` left-2/4 top-1/3 transform -translate-x-2/4 -translate-y-2/4 py-6 fixed bg-white z-100 outline-none rounded-md text-xl font-bold
+  md:(px-6)`,
 );
 
 const LoginText = styled.div(
@@ -43,7 +45,7 @@ const LoginWrapper = styled.div(
 );
 
 const Imagewrapper = styled.div(
-  tw` flex text-16 items-center justify-center w-full h-50px clickable sm: my-32 `,
+  tw` flex text-16 font-bold items-center justify-center w-222px h-50px clickable sm: my-32 `,
   css`
     margin: 5% auto;
     border-radius: 10px;
@@ -54,30 +56,35 @@ const Imagewrapper = styled.div(
       height: 60px;
     }
     @media (max-width: 400px) {
-      width: 90%;
       font-size: 14px;
     }
   `,
 );
 
-const KaKaoBtn = styled(KaKaoLogin)(
-  tw`font-bold p-0 clickable overflow-hidden`,
-  css`
-    border-radius: 10px !important;
-    background-color: #f9e000 !important;
-    font-family: 'Lato';
-    outline: none;
-    @media (max-width: 400px) {
-      font-size: 14px !important;
-    }
-  `,
-);
+// const KaKaoBtn = styled(Button)(
+//   tw`font-bold p-0 clickable overflow-hidden`,
+//   css`
+//     border-radius: 10px !important;
+//     background-color: #f9e000 !important;
+//     font-family: 'Lato';
+//     outline: none;
+//     @media (max-width: 400px) {
+//       font-size: 14px !important;
+//     }
+//   `,
+// );
 
 const LoginModal = (props) => {
   const { displayHandler } = props;
-  const { setIsLogged, setProfileNickName, setProfileId } = useContext(
-    LoginContext,
-  );
+  const alert = useAlert();
+
+  const handleAlert = () => {
+    alert.show(ALERT_TEXT);
+  };
+  // const { setIsLogged, setProfileNickName, setProfileId } = useContext(
+  //   LoginContext,
+  // );
+  // const alert = useAlert();
 
   return (
     <>
@@ -86,23 +93,7 @@ const LoginModal = (props) => {
         <DeleteButton onClick={displayHandler} src={LoginTools.delete} />
         <LoginText>{LOGIN_TEXT}</LoginText>
         <LoginWrapper>
-          <Imagewrapper>
-            <KaKaoBtn
-              token={KAKAO_TOKEN}
-              onSuccess={async (res) => {
-                displayHandler();
-                setIsLogged(true);
-                setProfileNickName(res.profile.properties.nickname);
-                setProfileId(res.profile.id);
-                await postLoginInfo(
-                  res.profile.id,
-                  res.profile.properties.nickname,
-                );
-              }}
-            >
-              {KAKAO_BUTTON}
-            </KaKaoBtn>
-          </Imagewrapper>
+          <Imagewrapper onClick={handleAlert}>{KAKAO_BUTTON}</Imagewrapper>
           <Imagewrapper color="true" onClick={displayHandler}>
             {NONLOGIN_BUTTON}
           </Imagewrapper>
