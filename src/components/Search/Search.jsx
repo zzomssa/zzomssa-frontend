@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 import React, { useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { InputGroup, Input } from 'reactstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
 import tw from 'twin.macro';
@@ -18,7 +19,7 @@ const SearchContainer = styled.div(
     background-color: #303030;
   `,
 );
-const StyledLink = styled(Link)(tw`flex items-center`);
+// const StyledLink = styled(Link)(tw`flex items-center`);
 
 const SearchBar = styled(InputGroup)(
   tw`rounded-3xl flex flex-row h-35px items-center`,
@@ -63,7 +64,6 @@ const Search = (props) => {
 
   const handleInput = (e) => setSearchTerm(e.target.value);
   const handleClick = () => {
-    // e.preventDefault();
     if (searchTerm?.length > 1) {
       setSelectedCategory(-1);
       setSelectedSubCategory(-1);
@@ -74,7 +74,6 @@ const Search = (props) => {
     }
   };
   const handleKeyPress = (e) => {
-    // e.preventDefault();
     if (e.key === 'Enter') {
       handleClick();
     }
@@ -84,9 +83,9 @@ const Search = (props) => {
     <>
       <SearchContainer>
         <SearchBar>
-          <StyledLink to="/search">
-            <ImageContainer src={iconSearch} onClick={handleClick} />
-          </StyledLink>
+          {/* <StyledLink to="/search">
+          </StyledLink> */}
+          <ImageContainer src={iconSearch} onClick={handleClick} />
           <StyledInput
             placeholder={INPUT_PLACEHOLDER}
             value={searchTerm}
