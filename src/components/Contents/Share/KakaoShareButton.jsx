@@ -9,7 +9,7 @@ import {
   kakaoShareLogo,
   ZZOMSSA_URL,
   ZZOMSSA_NAME,
-  // ZZOMSSA_INTRO
+  ZZOMSSA_INTRO
 } from '../../../constants/shareItem';
 
 const CustomButton = styled(Button)(
@@ -38,6 +38,7 @@ const createKakaoButton = (brandName = null) => {
       content: {
         title: shareTitle,
         description: '쫌싸로 할인 중인 기획전 GET!',
+        imageUrl: ZZOMSSA_INTRO,
         link: {
           mobileWebUrl: webUrl,
           webUrl,
