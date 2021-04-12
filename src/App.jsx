@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Analytics from 'react-router-ga';
 
 import AlertTemplate from 'react-alert-template-basic';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+import { positions, Provider as AlertProvider } from 'react-alert';
 import { GlobalStyles } from './style';
 
 import { ColorProvider } from './context/ColorContext';
@@ -18,7 +18,6 @@ const options = {
   position: positions.MIDDLE,
   timeout: 3000,
   offset: '-150px',
-  transition: transitions.SCALE,
 };
 
 const AppProvider = ({ contexts, children }) =>

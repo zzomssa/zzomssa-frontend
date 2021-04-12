@@ -2,11 +2,14 @@ import React, { useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { InputGroup, Input } from 'reactstrap';
 import { Link, useHistory } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 
 import tw from 'twin.macro';
 import { iconSearch, iconX } from '../../constants/searchItem';
 import PromotionContext from '../../context/PromotionContext';
 import MenuContext from '../../context/MenuContext';
+
+const ALERT_TEXT = '두글자 이상 입력해주세요!';
 
 const INPUT_PLACEHOLDER = '검색';
 const SearchContainer = styled.div(
@@ -54,18 +57,24 @@ const Search = (props) => {
     MenuContext,
   );
   const history = useHistory();
+  const alert = useAlert();
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleInput = (e) => setSearchTerm(e.target.value);
   const handleClick = () => {
+    // e.preventDefault();
     if (searchTerm?.length > 1) {
       setSelectedCategory(-1);
       setSelectedSubCategory(-1);
       setSearchTarget(searchTerm);
       history.push('/search');
+    } else {
+      alert.show(ALERT_TEXT);
     }
   };
   const handleKeyPress = (e) => {
+    // e.preventDefault();
     if (e.key === 'Enter') {
       handleClick();
     }

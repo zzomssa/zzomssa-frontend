@@ -12,7 +12,7 @@ import LoginTools from '../../../constants/loginItem';
 const LOGIN_TEXT = '로그인';
 const KAKAO_BUTTON = '카카오 계정으로 로그인하기';
 const NONLOGIN_BUTTON = '비회원으로 사이트 이용하기';
-const ALERT_TEXT ='카카오 로그인 기능은 현재 개발 중입니다!'
+const ALERT_TEXT ='카카오 로그인 기능은 현재 개발 중입니다!';
 const ModalBackground = styled.div(
   tw`fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 z-50 outline-none`,
 );
