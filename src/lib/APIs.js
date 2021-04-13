@@ -1,6 +1,6 @@
 import client from './Axios';
 
-const baseApiURL = 'https://zzomsa.tk';
+const baseApiURL = 'https://3.35.125.213/';
 
 const getBrand = async () => {
   try {
