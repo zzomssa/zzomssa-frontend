@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const DURATION = '기간 :';
 const NONDURATION = '홈페이지 참조';
 
@@ -57,11 +58,13 @@ const descLengthOverCut = (desc) =>
 
 const isNeedMoreFetch = (loading, itemSize, promotions) => {
   if (
+    promotions?.data &&
     loading === false &&
-    !(itemSize > 40 && promotions?.data?.length === 0) &&
-    !(Math.abs(promotions?.data?.length - itemSize) > 20)
+    !(itemSize > 40 && promotions.data.length === 0) &&
+    !(Math.abs(promotions.data.length - itemSize) > 20)
   )
     return true;
+
   return false;
 };
 export {
@@ -72,5 +75,5 @@ export {
   replaceAll,
   checkDuration,
   descLengthOverCut,
-  isNeedMoreFetch
+  isNeedMoreFetch,
 };
