@@ -25,8 +25,6 @@ client.interceptors.response.use(
     response => response,
     // error => {
     //     if (error.response.status === 403) {
-    //         sessionStorage.clear();
-    //         window.location.href = '/login';
     //         return Promise.reject(error.response.status);
     //     }
     //     return Promise.reject(error);

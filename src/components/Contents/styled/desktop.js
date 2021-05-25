@@ -5,10 +5,14 @@ import tw from 'twin.macro';
 
 const CardListContainer = styled.div(
   tw`hidden md:(flow-root mt-10 mb-16 mx-16 items-center)`,
+  css`
+    column-width: 350px;
+    column-gap: 0px;
+  `
 );
 
 const CustomCard = styled(Card)(
-  tw`flex m-8 flex-row rounded-xl overflow-hidden border border-solid h-222px`,
+  tw`inline-block m-3 rounded-xl overflow-hidden border border-solid`,
   css`
     border-color: ${(props) => props.theme.card_border};
   `,
@@ -27,42 +31,47 @@ const CategoryHeader = styled.div(
   `,
 );
 
-const CustomCardImg = styled(CardImg)(tw`w-3/5 h-full clickable`);
+const CustomCardImg = styled(CardImg)(tw`w-full h-full clickable`);
 
 const CustomCardBody = styled(CardBody)(
-  tw`w-2/5`,
+  tw`w-full`,
   css`
     background-color: ${(props) => props.theme.card_bg};
+    margin-top: -4px;
   `,
 );
 
 const CardContent = styled.div(
-  tw`px-4 pt-4 truncate h-154px`,
+  tw`px-4 pt-4 truncate`,
   css`
     white-space: break-spaces;
   `,
 );
 
 const CardTitle = styled.p(
-  tw`mb-2 font-bold overflow-clip overflow-hidden text-20 h-40px`,
+  tw`mb-2 font-bold overflow-clip overflow-hidden text-20 leading-tight`,
   css`
-    color: ${(props) => props.theme.contrast_text};
+    color: ${(props) => props.theme.black};
   `,
 );
 
-const CardText = styled.p(tw`mt-5 mb-1.5 text-16 overflow-clip overflow-hidden h-63px`);
+const CardText = styled.p(tw`mt-5 mb-1.5 text-16 overflow-clip overflow-hidden leading-tight`,
+css`
+    color: ${(props) => props.theme.card_text};
+`);
 
 const CardDuration = styled.p(
-  tw`text-16`,
+  tw`text-16 text-center py-4`,
   css`
-    color: ${(props) => props.theme.contrast_text};
+    color: ${(props) => props.theme.black};
   `,
 );
 
 const CardBrandInfo = styled.div(
-  tw`font-bold text-20 bg-black text-center py-4`,
+  tw`font-bold text-20 text-center py-4`,
   css`
     color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.card_bg};
   `,
 );
 

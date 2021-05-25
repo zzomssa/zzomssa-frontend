@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import ColorContext from '../../../context/ColorContext';
 import PromotionContext from '../../../context/PromotionContext';
-import MenuContext from '../../../context/MenuContext';
+// import MenuContext from '../../../context/MenuContext';
 import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import LoadingTools from '../../../constants/loadingItem';
@@ -9,7 +9,7 @@ import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
 
 import {
   replaceAll,
-  getSelectedBrandInfo,
+  // getSelectedBrandInfo,
   checkDuration,
   isNeedMoreFetch
 } from '../../../lib/Util';
@@ -23,7 +23,7 @@ import {
   CardTitle,
   CardText,
   CardDuration,
-  CardBrandInfo,
+  // CardBrandInfo,
   LoadingIcon,
   LastItem,
 } from '../styled/desktop';
@@ -33,7 +33,7 @@ const AllContentsBrandCardList = () => {
   const { promotions, itemSize, setItemSize, loading } = useContext(
     PromotionContext,
   );
-  const { menuArr } = useContext(MenuContext);
+  // const { menuArr } = useContext(MenuContext);
   const [target, setTarget] = useState(null);
 
   useInfiniteScroll({
@@ -57,12 +57,12 @@ const AllContentsBrandCardList = () => {
             image,
             title,
             url,
-            brandId,
+            // brandId,
           } = promotion;
           const duration = checkDuration(startAt, endAt);
           const refinedTitle = replaceAll(title, '\r\n', ' ');
           const refinedDesc = replaceAll(description, '\r\n', ' ');
-          const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
+          // const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
           return (
             <CustomCard key={`all_${title}_${id}`}>
               <CustomCardImg
@@ -78,7 +78,7 @@ const AllContentsBrandCardList = () => {
                   <CardText>{refinedDesc}</CardText>
                   <CardDuration>{duration}</CardDuration>
                 </CardContent>
-                <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+                {/* <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo> */}
               </CustomCardBody>
             </CustomCard>
           );
