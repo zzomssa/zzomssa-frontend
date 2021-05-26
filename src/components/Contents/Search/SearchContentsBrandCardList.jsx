@@ -9,9 +9,12 @@ import {
 } from '../../../lib/Util';
 
 import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
+import '../styled/masonry.css';
 
 import {
-  CardListContainer,
+  Masonry,
+  breakpointColumnsObj,
+  // CardListContainer,
   CustomCard,
   CustomCardImg,
   CustomCardBody,
@@ -26,7 +29,11 @@ const SearchContentsBrandCardList = () => {
   const { promotions } = useContext(PromotionContext);
   // const { menuArr } = useContext(MenuContext);
   return (
-    <CardListContainer>
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="masonry-grid"
+      columnClassName="masonry-grid_column"
+    >
       {promotions?.data?.map((promotion) => {
         const {
           id,
@@ -62,7 +69,7 @@ const SearchContentsBrandCardList = () => {
           </CustomCard>
         );
       })}
-    </CardListContainer>
+    </Masonry>
   );
 };
 

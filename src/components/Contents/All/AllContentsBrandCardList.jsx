@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+
 import ColorContext from '../../../context/ColorContext';
 import PromotionContext from '../../../context/PromotionContext';
 // import MenuContext from '../../../context/MenuContext';
@@ -6,6 +7,7 @@ import useInfiniteScroll from '../../../lib/useInfiniteScroll';
 
 import LoadingTools from '../../../constants/loadingItem';
 import { UNTITLED, UNTITLED_PHRASE } from '../../../constants/contentsItem';
+import '../styled/masonry.css';
 
 import {
   replaceAll,
@@ -15,7 +17,9 @@ import {
 } from '../../../lib/Util';
 
 import {
-  CardListContainer,
+  Masonry,
+  breakpointColumnsObj,
+  // CardListContainer,
   CustomCard,
   CustomCardImg,
   CustomCardBody,
@@ -47,7 +51,11 @@ const AllContentsBrandCardList = () => {
 
   return (
     <>
-      <CardListContainer>
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="masonry-grid"
+        columnClassName="masonry-grid_column"
+      >
         {promotions?.data?.map((promotion) => {
           const {
             id,
@@ -83,16 +91,14 @@ const AllContentsBrandCardList = () => {
             </CustomCard>
           );
         })}
-        <LastItem ref={setTarget}>
-          <LoadingIcon
-            src={
-              theme === 'light'
-                ? LoadingTools.LogoWhite
-                : LoadingTools.LogoBlack
-            }
-          />
-        </LastItem>
-      </CardListContainer>
+      </Masonry>
+      <LastItem ref={setTarget}>
+        <LoadingIcon
+          src={
+            theme === 'light' ? LoadingTools.LogoWhite : LoadingTools.LogoBlack
+          }
+        />
+      </LastItem>
     </>
   );
 };

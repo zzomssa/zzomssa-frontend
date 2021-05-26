@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 import { Card, CardImg, CardBody } from 'reactstrap';
+import Masonry from 'react-masonry-css';
 
 import tw from 'twin.macro';
 
 const CardListContainer = styled.div(
   tw`hidden md:(flow-root mt-10 mb-16 mx-16 items-center)`,
   css`
-    column-width: 350px;
     column-gap: 0px;
   `
 );
@@ -90,7 +90,13 @@ const LoadingIcon = styled.img(
 
 const LastItem = styled.div(tw`absolute left-2/4 transform -translate-x-2/4`);
 
+const breakpointColumnsObj = {
+  default: 2,
+};
+
 export {
+  Masonry,
+  breakpointColumnsObj,
   CardListContainer,
   CustomCard,
   CustomCardImg,
