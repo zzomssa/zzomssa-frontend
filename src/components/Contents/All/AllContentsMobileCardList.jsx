@@ -52,7 +52,7 @@ const AllContentsMobileCardList = () => {
               <CustomCardImg
                 src={image}
                 alt="Card image cap"
-                onClick={() => window.open(url, '_blank')}
+                // onClick={() => window.open(url, '_blank')}
               />
               <CustomCardBody>
                 <CardContent>
