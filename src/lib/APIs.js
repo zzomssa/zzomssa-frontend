@@ -1,6 +1,6 @@
 import client from './Axios';
 
-const baseApiURL = 'http://zzomssa.xyz';
+const baseApiURL = 'https://zzomssa.xyz';
 
 const getBrand = async () => {
   try {
