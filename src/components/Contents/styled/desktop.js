@@ -89,7 +89,8 @@ const LoadingIcon = styled.img(
 const LastItem = styled.div(tw`absolute left-2/4 transform -translate-x-2/4`);
 
 const breakpointColumnsObj = {
-  default: 2,
+  default: 3,
+  1100: 2
 };
 
 export {
