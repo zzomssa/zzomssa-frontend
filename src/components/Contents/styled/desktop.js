@@ -5,16 +5,14 @@ import Masonry from 'react-masonry-css';
 import tw from 'twin.macro';
 
 const CardListContainer = styled.div(
-  tw`hidden md:(flow-root mt-10 mb-16 mx-16 items-center)`,
-  css`
-    column-gap: 0px;
-  `
+  tw`hidden md:(flow-root mt-10 mb-16 items-center)`
 );
 
 const CustomCard = styled(Card)(
-  tw`inline-block m-3 rounded-xl overflow-hidden border border-solid`,
+  tw`inline-block m-3 rounded-3xl overflow-hidden clickable`,
   css`
-    border-color: ${(props) => props.theme.card_border};
+    /* border-color: ${(props) => props.theme.card_border}; */
+    width: 95%;
   `,
 );
 

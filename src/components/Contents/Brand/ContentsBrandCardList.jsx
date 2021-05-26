@@ -66,7 +66,10 @@ const ContentsBrandCardList = () =>
             const refinedTitle = replaceAll(title, '\r\n', ' ');
             const refinedDesc = replaceAll(description, '\r\n', ' ');
             return (
-              <CustomCard key={`brand_${title}_${id}`}>
+              <CustomCard
+                key={`brand_${title}_${id}`}
+                onClick={() => window.open(url, '_blank')}
+              >
                 <CustomCardImg
                   src={image}
                   alt="Card image cap"

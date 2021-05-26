@@ -50,7 +50,10 @@ const SearchContentsBrandCardList = () => {
         const refinedDesc = replaceAll(description, '\r\n', ' ');
         // const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
         return (
-          <CustomCard key={`search_${title}_${id}`}>
+          <CustomCard
+            key={`search_${title}_${id}`}
+            onClick={() => window.open(url, '_blank')}
+          >
             <CustomCardImg
               src={image}
               alt="Card image cap"

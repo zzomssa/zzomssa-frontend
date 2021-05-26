@@ -1,6 +1,7 @@
 .masonry-grid {
   display: flex;
   width: auto;
+  padding: 0.5rem 1rem;
 }
 
 .masonry-grid_column {
