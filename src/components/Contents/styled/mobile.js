@@ -2,15 +2,15 @@ import styled, { css } from 'styled-components';
 import { Card, CardImg, CardBody } from 'reactstrap';
 import tw from 'twin.macro';
 
-const CardListContainer = styled.div(tw`mt-6 mb-20 items-center md:(hidden)`);
+const CardListContainer = styled.div(tw`mt-6 mb-20 mx-4 items-center md:(hidden)`);
 const CustomCard = styled(Card)(
-  tw`mb-4 overflow-hidden border-b border-solid shadow-card`,
+  tw`mb-4 rounded-xl overflow-hidden border-b border-solid shadow-card`,
   css`
     border-color: ${(props) => props.theme.card_border};
   `,
 );
 const CustomCardImg = styled(CardImg)(
-  tw`w-full clickable h-222px`
+  tw`w-full clickable`
 );
 const CustomCardBody = styled(CardBody)(
   tw`w-full flex flex-row justify-between -mt-1`,
@@ -23,6 +23,7 @@ const CardContent = styled.div(
   tw`px-4 pt-4 mb-4 truncate block`,
   css`
     white-space: break-spaces;
+    width: 65%;
   `,
 );
 const CardTitle = styled.p(
