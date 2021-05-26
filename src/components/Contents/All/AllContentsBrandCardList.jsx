@@ -11,7 +11,7 @@ import {
   replaceAll,
   // getSelectedBrandInfo,
   checkDuration,
-  isNeedMoreFetch
+  isNeedMoreFetch,
 } from '../../../lib/Util';
 
 import {
@@ -75,7 +75,7 @@ const AllContentsBrandCardList = () => {
                   <CardTitle>
                     {UNTITLED === refinedTitle ? UNTITLED_PHRASE : refinedTitle}
                   </CardTitle>
-                  <CardText>{refinedDesc}</CardText>
+                  {refinedDesc !== '' && <CardText>{refinedDesc}</CardText>}
                   <CardDuration>{duration}</CardDuration>
                 </CardContent>
                 {/* <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo> */}

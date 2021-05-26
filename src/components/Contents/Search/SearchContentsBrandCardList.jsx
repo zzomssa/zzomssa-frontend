@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
-import MenuContext from '../../../context/MenuContext';
+// import MenuContext from '../../../context/MenuContext';
 
 import {
   replaceAll,
-  getSelectedBrandInfo,
+  // getSelectedBrandInfo,
   checkDuration,
 } from '../../../lib/Util';
 
@@ -19,12 +19,12 @@ import {
   CardTitle,
   CardText,
   CardDuration,
-  CardBrandInfo,
+  // CardBrandInfo,
 } from '../styled/desktop';
 
 const SearchContentsBrandCardList = () => {
   const { promotions } = useContext(PromotionContext);
-  const { menuArr } = useContext(MenuContext);
+  // const { menuArr } = useContext(MenuContext);
   return (
     <CardListContainer>
       {promotions?.data?.map((promotion) => {
@@ -36,12 +36,12 @@ const SearchContentsBrandCardList = () => {
           image,
           title,
           url,
-          brandId,
+          // brandId,
         } = promotion;
         const duration = checkDuration(startAt, endAt);
         const refinedTitle = replaceAll(title, '\r\n', ' ');
         const refinedDesc = replaceAll(description, '\r\n', ' ');
-        const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
+        // const selectedBrandInfo = getSelectedBrandInfo(menuArr, brandId);
         return (
           <CustomCard key={`search_${title}_${id}`}>
             <CustomCardImg
@@ -54,10 +54,10 @@ const SearchContentsBrandCardList = () => {
                 <CardTitle>
                   {UNTITLED === refinedTitle ? UNTITLED_PHRASE : refinedTitle}
                 </CardTitle>
-                <CardText>{refinedDesc}</CardText>
+                {refinedDesc !== '' && <CardText>{refinedDesc}</CardText>}
                 <CardDuration>{duration}</CardDuration>
               </CardContent>
-              <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo>
+              {/* <CardBrandInfo>{selectedBrandInfo?.name}</CardBrandInfo> */}
             </CustomCardBody>
           </CustomCard>
         );
