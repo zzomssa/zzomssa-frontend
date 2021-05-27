@@ -105,9 +105,9 @@ const Header = () => {
                 src={MobileHeaderTools.Search}
                 onClick={handleSearch}
               />
-              <StyledLink to="/mobile/favorite">
+              {/* <StyledLink to="/mobile/favorite">
                 <ToolImageContainer key="Heart" src={MobileHeaderTools.Heart} />
-              </StyledLink>
+              </StyledLink> */}
             </MobileToolbarContainer>
             {windowWitdh >= DESK_MIN_WIDTH && <DarkModeToggle />}
           </ToolBar>

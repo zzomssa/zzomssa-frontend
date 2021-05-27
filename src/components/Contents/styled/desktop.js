@@ -5,7 +5,7 @@ import Masonry from 'react-masonry-css';
 import tw from 'twin.macro';
 
 const CardListContainer = styled.div(
-  tw`hidden md:(flow-root mt-10 mb-16 items-center)`
+  tw`hidden md:(flow-root mt-10 mb-16 items-center)`,
 );
 
 const CustomCard = styled(Card)(
@@ -53,10 +53,12 @@ const CardTitle = styled.p(
   `,
 );
 
-const CardText = styled.p(tw`mt-5 mb-1.5 text-16 overflow-clip overflow-hidden leading-tight`,
-css`
+const CardText = styled.p(
+  tw`mt-5 mb-1.5 text-16 overflow-clip overflow-hidden leading-tight`,
+  css`
     color: ${(props) => props.theme.card_text};
-`);
+  `,
+);
 
 const CardDuration = styled.p(
   tw`text-16 text-center py-4`,
@@ -86,11 +88,16 @@ const LoadingIcon = styled.img(
   `,
 );
 
-const LastItem = styled.div(tw`absolute left-2/4 transform -translate-x-2/4 pb-8`);
+const LastItem = styled.div(
+  tw`relative transform -translate-x-2/4 pb-8`,
+  css`
+    margin: 0 61%;
+  `,
+);
 
 const breakpointColumnsObj = {
   default: 3,
-  1100: 2
+  1100: 2,
 };
 
 export {
@@ -109,5 +116,5 @@ export {
   CardDuration,
   CardBrandInfo,
   LoadingIcon,
-  LastItem
+  LastItem,
 };
