@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import React, { useState, useContext } from 'react';
 import PromotionContext from '../../../context/PromotionContext';
 import ColorContext from '../../../context/ColorContext';
@@ -91,15 +93,17 @@ const ContentsBrandCardList = () =>
             );
           })}
         </Masonry>
-        <LastItem ref={setTarget}>
-          <LoadingIcon
-            src={
-              theme === 'light'
-                ? LoadingTools.LogoWhite
-                : LoadingTools.LogoBlack
-            }
-          />
-        </LastItem>
+        {promotions?.data && (
+          <LastItem ref={setTarget}>
+            <LoadingIcon
+              src={
+                theme === 'light'
+                  ? LoadingTools.LogoWhite
+                  : LoadingTools.LogoBlack
+              }
+            />
+          </LastItem>
+        )}
       </>
     );
   };
