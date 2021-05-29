@@ -9,7 +9,7 @@ const CardListContainer = styled.div(
 );
 
 const CustomCard = styled(Card)(
-  tw`inline-block m-3 rounded-3xl overflow-hidden clickable`,
+  tw`inline-block m-3 rounded-3xl overflow-hidden shadow clickable`,
   css`
     /* border-color: ${(props) => props.theme.card_border}; */
     width: 95%;
