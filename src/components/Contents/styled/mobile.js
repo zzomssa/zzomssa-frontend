@@ -29,7 +29,7 @@ const CardContent = styled.div(
 const CardTitle = styled.p(
   tw`pb-4 font-normal text-16`,
   css`
-    color: ${(props) => props.theme.contrast_text};
+    color: ${(props) => props.theme.mo_card_text};
   `,
 );
 const CardDuration = styled.p(
@@ -41,7 +41,7 @@ const CardDuration = styled.p(
 const CardBrandInfo = styled.div(
   tw`flex font-normal text-16 text-center items-center px-4`,
   css`
-    color: ${(props) => props.theme.contrast_text};
+    color: ${(props) => props.theme.mo_card_text};
   `,
 );
 
